@@ -1,0 +1,759 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Template Management";
+    Layout = "_AdminLayout";
+}
+
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+    <div>
+        <div class="flex items-center text-sm text-gray-500 mb-2">
+            <a href="/Admin/Dashboard" class="hover:text-primary">Dashboard</a>
+            <div class="w-4 h-4 flex items-center justify-center mx-1">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+            <span class="text-gray-700">Templates</span>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900">Template Management</h1>
+        <p class="mt-1 text-sm text-gray-500">Manage your greeting card templates</p>
+    </div>
+    <button id="add-template-btn" class="mt-4 sm:mt-0 flex items-center justify-center px-4 py-2 bg-primary text-white font-medium text-sm rounded-button whitespace-nowrap">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+            <i class="ri-add-line"></i>
+        </div>
+        Add New Template
+    </button>
+</div>
+
+<!-- Search and Filters -->
+<div class="mb-6 bg-white rounded shadow p-4">
+    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+        <div class="relative flex-1">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <i class="ri-search-line text-gray-400"></i>
+            </div>
+            <input type="text" id="search-templates" placeholder="Search templates..." class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+
+        <div class="flex space-x-2">
+            <div class="relative">
+                <select id="category-filter" class="appearance-none flex items-center justify-between w-40 px-4 py-2 bg-white border border-gray-300 rounded text-sm font-medium text-gray-700 whitespace-nowrap">
+                    <option value="">All Categories</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Thank You">Thank You</option>
+                    <option value="Holiday">Holiday</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Baby">Baby</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="Sympathy">Sympathy</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                    <i class="ri-arrow-down-s-line text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="relative">
+                <select id="sort-filter" class="appearance-none flex items-center justify-between w-32 px-4 py-2 bg-white border border-gray-300 rounded text-sm font-medium text-gray-700 whitespace-nowrap">
+                    <option value="latest">Latest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="name-asc">Name A-Z</option>
+                    <option value="name-desc">Name Z-A</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                    <i class="ri-arrow-down-s-line text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="flex border border-gray-300 rounded overflow-hidden">
+                <button id="grid-view" class="w-10 h-10 flex items-center justify-center bg-primary text-white">
+                    <i class="ri-layout-grid-line"></i>
+                </button>
+                <button id="list-view" class="w-10 h-10 flex items-center justify-center bg-white text-gray-500">
+                    <i class="ri-list-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Chips -->
+    <div id="filter-chips" class="mt-4 flex flex-wrap gap-2">
+        <button class="inline-flex items-center px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm font-medium rounded-full whitespace-nowrap">
+            <span>Birthday</span>
+            <div class="w-4 h-4 flex items-center justify-center ml-1">
+                <i class="ri-close-line"></i>
+            </div>
+        </button>
+        <button class="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full whitespace-nowrap">
+            <span>Active</span>
+            <div class="w-4 h-4 flex items-center justify-center ml-1">
+                <i class="ri-close-line"></i>
+            </div>
+        </button>
+        <button class="inline-flex items-center px-3 py-1 text-gray-500 text-sm font-medium whitespace-nowrap">
+            <span>Clear all</span>
+        </button>
+    </div>
+</div>
+
+<!-- Template Grid -->
+<div id="templates-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <!-- Template Card 1 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/birthday-template.jpg" alt="Birthday Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Active</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Elegant Birthday</h3>
+                <label class="switch">
+                    <input type="checkbox" checked class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Birthday</span>
+                <span class="ml-2">May 1, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 2 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/wedding-template.jpg" alt="Wedding Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Active</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Golden Wedding</h3>
+                <label class="switch">
+                    <input type="checkbox" checked class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Wedding</span>
+                <span class="ml-2">Apr 28, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 3 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/thankyou-template.jpg" alt="Thank You Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">Draft</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Watercolor Thanks</h3>
+                <label class="switch">
+                    <input type="checkbox" class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Thank You</span>
+                <span class="ml-2">Apr 25, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 4 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/holiday-template.jpg" alt="Holiday Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Active</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Winter Holiday</h3>
+                <label class="switch">
+                    <input type="checkbox" checked class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Holiday</span>
+                <span class="ml-2">Apr 20, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 5 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/anniversary-template.jpg" alt="Anniversary Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">Archived</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Silver Anniversary</h3>
+                <label class="switch">
+                    <input type="checkbox" class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Anniversary</span>
+                <span class="ml-2">Apr 15, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 6 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/baby-template.jpg" alt="Baby Shower Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Active</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Sweet Baby</h3>
+                <label class="switch">
+                    <input type="checkbox" checked class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Baby</span>
+                <span class="ml-2">Apr 10, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 7 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/graduation-template.jpg" alt="Graduation Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Active</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Academic Success</h3>
+                <label class="switch">
+                    <input type="checkbox" checked class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Graduation</span>
+                <span class="ml-2">Apr 5, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Card 8 -->
+    <div class="bg-white rounded shadow overflow-hidden group">
+        <div class="relative aspect-[4/3] bg-gray-100">
+            <img src="/images/templates/sympathy-template.jpg" alt="Sympathy Card Template" class="w-full h-full object-cover object-top">
+            <div class="absolute top-2 right-2">
+                <span class="inline-flex items-center px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">Draft</span>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="flex space-x-2">
+                    <button class="preview-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button class="edit-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="delete-template-btn w-9 h-9 flex items-center justify-center bg-white rounded-full text-gray-700 shadow-md whitespace-nowrap">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium text-gray-900">Gentle Sympathy</h3>
+                <label class="switch">
+                    <input type="checkbox" class="template-status">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="mt-1 flex items-center text-xs text-gray-500">
+                <span class="bg-primary bg-opacity-10 text-primary px-2 py-0.5 rounded text-xs">Sympathy</span>
+                <span class="ml-2">Apr 1, 2025</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Template List View (Hidden by default) -->
+<div id="templates-list" class="hidden bg-white rounded shadow overflow-hidden">
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Template</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Added</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            <!-- Template Row 1 -->
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 flex-shrink-0">
+                            <img class="h-10 w-10 rounded object-cover" src="/images/templates/birthday-template.jpg" alt="Birthday Template">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">Elegant Birthday</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="bg-primary bg-opacity-10 text-primary px-2 py-1 rounded text-xs">Birthday</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 1, 2025</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <label class="switch">
+                        <input type="checkbox" checked class="template-status">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <div class="flex items-center justify-end space-x-2">
+                        <button class="preview-btn p-1 text-gray-500 hover:text-primary">
+                            <i class="ri-eye-line"></i>
+                        </button>
+                        <button class="edit-template-btn p-1 text-gray-500 hover:text-primary">
+                            <i class="ri-edit-line"></i>
+                        </button>
+                        <button class="delete-template-btn p-1 text-gray-500 hover:text-red-500">
+                            <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <!-- More template rows would be here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination -->
+<div class="mt-6 flex items-center justify-between">
+    <div class="text-sm text-gray-700">
+        Showing <span class="font-medium">1</span> to <span class="font-medium">8</span> of <span class="font-medium">24</span> results
+    </div>
+    <div class="flex space-x-1">
+        <button class="px-3 py-2 border border-gray-300 rounded text-sm font-medium text-gray-500 bg-white whitespace-nowrap">
+            Previous
+        </button>
+        <button class="px-3 py-2 border border-gray-300 rounded text-sm font-medium bg-primary text-white whitespace-nowrap">
+            1
+        </button>
+        <button class="px-3 py-2 border border-gray-300 rounded text-sm font-medium text-gray-700 bg-white whitespace-nowrap">
+            2
+        </button>
+        <button class="px-3 py-2 border border-gray-300 rounded text-sm font-medium text-gray-700 bg-white whitespace-nowrap">
+            3
+        </button>
+        <button class="px-3 py-2 border border-gray-300 rounded text-sm font-medium text-gray-700 bg-white whitespace-nowrap">
+            Next
+        </button>
+    </div>
+</div>
+
+<!-- Preview Modal -->
+<div id="preview-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b">
+            <h3 class="text-lg font-medium text-gray-900">Template Preview</h3>
+            <button id="close-preview-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto">
+            <div class="aspect-[4/3] bg-gray-100 mb-4">
+                <img id="preview-image" src="/placeholder.svg" alt="Template Preview" class="w-full h-full object-cover object-top">
+            </div>
+            <h2 id="preview-title" class="text-xl font-semibold text-gray-900 mb-2"></h2>
+            <div class="flex items-center mb-4">
+                <span id="preview-category" class="bg-primary bg-opacity-10 text-primary px-2 py-1 rounded text-sm"></span>
+                <span id="preview-date" class="ml-3 text-sm text-gray-500"></span>
+            </div>
+            <p class="text-gray-600 mb-4">This template can be customized with your own text, images, and colors. Perfect for sending personalized greetings to your loved ones.</p>
+            <div class="mt-6 flex justify-end space-x-3">
+                <button id="close-preview-btn" class="px-4 py-2 border border-gray-300 rounded text-sm font-medium text-gray-700 bg-white rounded-button whitespace-nowrap">Close</button>
+                <button class="px-4 py-2 bg-primary text-white font-medium text-sm rounded-button whitespace-nowrap">Use This Template</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit Template Modal -->
+<div id="template-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b">
+            <h3 class="text-lg font-medium text-gray-900" id="template-modal-title">Add New Template</h3>
+            <button id="close-template-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto">
+            <form id="template-form">
+                <div class="space-y-4">
+                    <div>
+                        <label for="template-name" class="block text-sm font-medium text-gray-700 mb-1">Template Name</label>
+                        <input type="text" id="template-name" class="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Enter template name">
+                    </div>
+
+                    <div>
+                        <label for="template-category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                        <select id="template-category" class="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                            <option value="">Select a category</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Thank You">Thank You</option>
+                            <option value="Holiday">Holiday</option>
+                            <option value="Anniversary">Anniversary</option>
+                            <option value="Baby">Baby</option>
+                            <option value="Graduation">Graduation</option>
+                            <option value="Sympathy">Sympathy</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Template Image</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded">
+                            <div class="space-y-1 text-center">
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="template-image" class="relative cursor-pointer bg-white rounded font-medium text-primary hover:text-primary-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary">
+                                        <span>Upload a file</span>
+                                        <input id="template-image" name="template-image" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="template-description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea id="template-description" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Enter template description"></textarea>
+                    </div>
+
+                    <div class="flex items-center">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" id="template-active" class="form-checkbox h-4 w-4 text-primary rounded border-gray-300" checked>
+                            <span class="ml-2 text-sm text-gray-700">Active</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-end space-x-3">
+                    <button type="button" id="cancel-template-btn" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-button text-sm font-medium hover:bg-gray-200 whitespace-nowrap">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 whitespace-nowrap">Save Template</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="flex items-center justify-between p-4 border-b">
+            <h3 class="text-lg font-medium text-gray-900">Confirm Delete</h3>
+            <button id="close-delete-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <div class="p-6">
+            <p class="text-sm text-gray-500 mb-4">Are you sure you want to delete this template? This action cannot be undone.</p>
+            <div class="flex justify-end space-x-3">
+                <button id="cancel-delete-btn" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-button text-sm font-medium hover:bg-gray-200 whitespace-nowrap">Cancel</button>
+                <button id="confirm-delete-btn" class="px-4 py-2 bg-red-600 text-white rounded-button text-sm font-medium hover:bg-red-700 whitespace-nowrap">Delete Template</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // View toggle functionality
+            const gridView = document.getElementById('grid-view');
+            const listView = document.getElementById('list-view');
+            const templatesGrid = document.getElementById('templates-grid');
+            const templatesList = document.getElementById('templates-list');
+
+            gridView.addEventListener('click', function() {
+                gridView.classList.add('bg-primary', 'text-white');
+                gridView.classList.remove('bg-white', 'text-gray-500');
+                listView.classList.add('bg-white', 'text-gray-500');
+                listView.classList.remove('bg-primary', 'text-white');
+                templatesGrid.classList.remove('hidden');
+                templatesList.classList.add('hidden');
+            });
+
+            listView.addEventListener('click', function() {
+                listView.classList.add('bg-primary', 'text-white');
+                listView.classList.remove('bg-white', 'text-gray-500');
+                gridView.classList.add('bg-white', 'text-gray-500');
+                gridView.classList.remove('bg-primary', 'text-white');
+                templatesList.classList.remove('hidden');
+                templatesGrid.classList.add('hidden');
+            });
+
+            // Preview modal functionality
+            const previewButtons = document.querySelectorAll('.preview-btn');
+            const previewModal = document.getElementById('preview-modal');
+            const closePreviewModal = document.getElementById('close-preview-modal');
+            const closePreviewBtn = document.getElementById('close-preview-btn');
+
+            previewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Get template data from the card
+                    const card = this.closest('.group');
+                    const image = card.querySelector('img').src;
+                    const title = card.querySelector('h3').textContent;
+                    const category = card.querySelector('.bg-primary.bg-opacity-10').textContent;
+                    const date = card.querySelector('.mt-1 span:last-child').textContent;
+
+                    // Populate modal with data
+                    document.getElementById('preview-image').src = image;
+                    document.getElementById('preview-title').textContent = title;
+                    document.getElementById('preview-category').textContent = category;
+                    document.getElementById('preview-date').textContent = date;
+
+                    // Show modal
+                    previewModal.classList.remove('hidden');
+                });
+            });
+
+            // Close preview modal
+            function closePreview() {
+                previewModal.classList.add('hidden');
+            }
+
+            closePreviewModal.addEventListener('click', closePreview);
+            closePreviewBtn.addEventListener('click', closePreview);
+
+            // Template modal functionality
+            const addTemplateBtn = document.getElementById('add-template-btn');
+            const templateModal = document.getElementById('template-modal');
+            const closeTemplateModal = document.getElementById('close-template-modal');
+            const cancelTemplateBtn = document.getElementById('cancel-template-btn');
+            const templateForm = document.getElementById('template-form');
+            const templateModalTitle = document.getElementById('template-modal-title');
+
+            // Open add template modal
+            addTemplateBtn.addEventListener('click', function() {
+                templateModalTitle.textContent = 'Add New Template';
+                templateForm.reset();
+                templateModal.classList.remove('hidden');
+            });
+
+            // Close template modal
+            function closeTemplateModal() {
+                templateModal.classList.add('hidden');
+            }
+
+            closeTemplateModal.addEventListener('click', closeTemplateModal);
+            cancelTemplateBtn.addEventListener('click', closeTemplateModal);
+
+            // Edit template functionality
+            const editButtons = document.querySelectorAll('.edit-template-btn');
+
+            editButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    templateModalTitle.textContent = 'Edit Template';
+                    // Here you would typically populate the form with the template's data
+                    templateModal.classList.remove('hidden');
+                });
+            });
+
+            // Delete template functionality
+            const deleteButtons = document.querySelectorAll('.delete-template-btn');
+            const deleteModal = document.getElementById('delete-modal');
+            const closeDeleteModal = document.getElementById('close-delete-modal');
+            const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+            const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    deleteModal.classList.remove('hidden');
+                });
+            });
+
+            // Close delete modal
+            function closeDeleteModal() {
+                deleteModal.classList.add('hidden');
+            }
+
+            closeDeleteModal.addEventListener('click', closeDeleteModal);
+            cancelDeleteBtn.addEventListener('click', closeDeleteModal);
+
+            // Confirm delete
+            confirmDeleteBtn.addEventListener('click', function() {
+                // Here you would typically handle the delete action
+                closeDeleteModal();
+            });
+
+            // Template form submission
+            templateForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically handle the form submission
+                closeTemplateModal();
+            });
+
+            // Toggle switches functionality
+            const switches = document.querySelectorAll('.template-status');
+
+            switches.forEach(switchInput => {
+                switchInput.addEventListener('change', function() {
+                    const card = this.closest('.group');
+                    const statusBadge = card.querySelector('.absolute.top-2.right-2 span');
+
+                    if (this.checked) {
+                        statusBadge.textContent = 'Active';
+                        statusBadge.className = 'inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full';
+                    } else {
+                        statusBadge.textContent = 'Draft';
+                        statusBadge.className = 'inline-flex items-center px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full';
+                    }
+                });
+            });
+
+            // Filter chips functionality
+            const filterChips = document.querySelectorAll('#filter-chips button');
+
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    if (this.textContent.includes('Clear all')) {
+                        filterChips.forEach(c => {
+                            if (!c.textContent.includes('Clear all')) {
+                                c.classList.remove('bg-primary', 'bg-opacity-10', 'text-primary');
+                                c.classList.add('bg-gray-100', 'text-gray-800');
+                            }
+                        });
+                    } else {
+                        this.classList.toggle('bg-primary');
+                        this.classList.toggle('bg-opacity-10');
+                        this.classList.toggle('text-primary');
+                        this.classList.toggle('bg-gray-100');
+                        this.classList.toggle('text-gray-800');
+                    }
+                });
+            });
+        });
+    </script>
+}
+

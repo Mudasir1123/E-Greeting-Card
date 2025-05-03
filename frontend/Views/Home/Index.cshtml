@@ -1,0 +1,349 @@
+﻿@{
+    ViewData["Title"] = "E-Greeting - Personalized Digital Greeting Cards";
+}
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center"
+         style="background-image: url('https://readdy.ai/api/search-image?query=A%20modern%2C%20elegant%20digital%20greeting%20card%20platform%20with%20a%20soft%20gradient%20background.%20The%20right%20side%20shows%20beautifully%20designed%20greeting%20cards%20floating%20in%203D%20space%20with%20soft%20shadows.%20The%20left%20side%20has%20clean%20space%20for%20text.%20The%20overall%20style%20is%20minimalist%20with%20soft%20pastel%20colors%20and%20subtle%20design%20elements.%20Professional%2C%20high-quality%20digital%20illustration%20with%20smooth%20transitions%20between%20elements.&width=1920&height=1080&seq=1&orientation=landscape');">
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+    </div>
+    <div class="container mx-auto px-4 py-20 md:py-32 relative">
+        <div class="max-w-2xl">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Express Your Feelings with Beautiful
+                Digital Greetings
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-8">
+                Create personalized e-cards for any occasion with our
+                easy-to-use platform. Send instantly or schedule for the perfect moment.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#"
+                   class="!rounded-button bg-primary text-white px-6 py-3 text-base font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center">
+                    <span>Browse Templates</span>
+                    <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </a>
+                <a href="#"
+                   class="!rounded-button bg-white text-gray-800 border border-gray-300 px-6 py-3 text-base font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+                    <span>How It Works</span>
+                    <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                        <i class="ri-play-circle-line"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Filters -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Find the Perfect Template</h2>
+            <p class="text-lg text-gray-600 max-w-2xl text-center">
+                Browse our extensive collection of professionally
+                designed templates for any occasion
+            </p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex justify-center mb-8">
+            <div class="inline-flex p-1 bg-gray-100 rounded-full">
+                <button class="px-6 py-2 rounded-full bg-white shadow-sm text-gray-900 font-medium">
+                    All
+                    Categories
+                </button>
+                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Birthdays</button>
+                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Holidays</button>
+                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Thank You</button>
+                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Congratulations</button>
+            </div>
+        </div>
+
+        <!-- Sort and Filter -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <span class="text-gray-700 font-medium">Filter by:</span>
+                <div class="relative">
+                    <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
+                        <span>Occasion</span>
+                        <div class="w-4 h-4 flex items-center justify-center">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
+                        <span>Style</span>
+                        <div class="w-4 h-4 flex items-center justify-center">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
+                    <span>Sort by: Newest</span>
+                    <div class="w-4 h-4 flex items-center justify-center">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Template Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Template 1 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20elegant%20birthday%20greeting%20card%20design%20with%20soft%20pastel%20colors.%20The%20card%20features%20a%20minimalist%20cake%20with%20lit%20candles%20on%20a%20clean%20background.%20Professional%20digital%20design%20with%20subtle%20patterns%20and%20elegant%20typography%20saying%20Happy%20Birthday.%20The%20style%20is%20contemporary%20and%20sophisticated%20with%20a%20clean%20layout.&width=600&height=450&seq=2&orientation=landscape"
+                         alt="Birthday Card Template"
+                         class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-medium text-gray-900">Birthday Celebration</h3>
+                        <span class="text-sm font-medium text-primary">$2.99</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <div class="w-4 h-4 flex items-center justify-center mr-1">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span>4.8 (124 reviews)</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Birthday</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Animated</span>
+                    </div>
+                    <button class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap">
+                        Customize
+                        Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 2 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20elegant%20thank%20you%20greeting%20card%20design%20with%20soft%20blue%20and%20gold%20colors.%20The%20card%20features%20a%20minimalist%20floral%20pattern%20with%20elegant%20typography%20saying%20Thank%20You.%20Professional%20digital%20design%20with%20subtle%20textures%20and%20a%20sophisticated%20layout.%20The%20style%20is%20contemporary%20and%20refined%20with%20a%20clean%20aesthetic.&width=600&height=450&seq=3&orientation=landscape"
+                         alt="Thank You Card Template"
+                         class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-medium text-gray-900">Elegant Thank You</h3>
+                        <span class="text-sm font-medium text-primary">$1.99</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <div class="w-4 h-4 flex items-center justify-center mr-1">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span>4.9 (87 reviews)</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Thank You</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Elegant</span>
+                    </div>
+                    <button class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap">
+                        Customize
+                        Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 3 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20elegant%20wedding%20congratulations%20greeting%20card%20design%20with%20soft%20pastel%20colors.%20The%20card%20features%20minimalist%20floral%20elements%20with%20two%20wedding%20rings.%20Professional%20digital%20design%20with%20subtle%20textures%20and%20elegant%20typography%20saying%20Congratulations.%20The%20style%20is%20romantic%20and%20sophisticated%20with%20a%20clean%20layout.&width=600&height=450&seq=4&orientation=landscape"
+                         alt="Wedding Card Template"
+                         class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 left-0 bg-primary text-white text-xs font-medium px-3 py-1">NEW</div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-medium text-gray-900">Wedding Wishes</h3>
+                        <span class="text-sm font-medium text-primary">$3.49</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <div class="w-4 h-4 flex items-center justify-center mr-1">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span>4.7 (56 reviews)</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Wedding</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Premium</span>
+                    </div>
+                    <button class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap">
+                        Customize
+                        Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 4 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20elegant%20holiday%20greeting%20card%20design%20with%20winter%20theme.%20The%20card%20features%20minimalist%20snowflakes%20and%20festive%20elements%20on%20a%20soft%20blue%20background.%20Professional%20digital%20design%20with%20subtle%20textures%20and%20elegant%20typography%20saying%20Happy%20Holidays.%20The%20style%20is%20contemporary%20and%20sophisticated%20with%20a%20clean%20layout.&width=600&height=450&seq=5&orientation=landscape"
+                         alt="Holiday Card Template"
+                         class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-medium text-gray-900">Winter Holidays</h3>
+                        <span class="text-sm font-medium text-primary">$2.49</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <div class="w-4 h-4 flex items-center justify-center mr-1">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span>4.6 (92 reviews)</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Holiday</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Winter</span>
+                    </div>
+                    <button class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap">
+                        Customize
+                        Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="flex justify-center mt-12">
+            <button class="!rounded-button bg-white border border-gray-300 text-gray-700 px-6 py-3 font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center">
+                <span>Load More Templates</span>
+                <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                    <i class="ri-arrow-down-line"></i>
+                </div>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <p class="text-lg text-gray-600 max-w-2xl text-center">
+                Create and send beautiful e-cards in just three
+                simple steps
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center text-primary">
+                        <i class="ri-search-line ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Choose a Template</h3>
+                <p class="text-gray-600">
+                    Browse our extensive collection of professionally designed templates for
+                    any occasion or event.
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center text-primary">
+                        <i class="ri-edit-2-line ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Personalize Your Card</h3>
+                <p class="text-gray-600">
+                    Add your own message, photos, and customize colors to make your e-card
+                    unique and personal.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 flex items-center justify-center text-primary">
+                        <i class="ri-send-plane-line ri-xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Send Instantly</h3>
+                <p class="text-gray-600">
+                    Deliver your e-card immediately or schedule it for the perfect moment.
+                    Track when it's opened.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<partial name="_FeaturesPartial" />
+
+<!-- Pricing Section -->
+<partial name="_PricingPartial" />
+
+<!-- Testimonials Section -->
+<partial name="_TestimonialsPartial" />
+
+<!-- CTA Section -->
+<section class="py-16 bg-primary/5">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Join thousands of users who are already sending beautiful,
+                        personalized e-greetings. Try it free for 7 days.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#"
+                           class="!rounded-button bg-primary text-white px-6 py-3 text-base font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <span>Start Free Trial</span>
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </a>
+                        <a href="#"
+                           class="!rounded-button bg-white text-gray-700 border border-gray-300 px-6 py-3 text-base font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <span>View Plans</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 bg-cover bg-center"
+                     style="background-image: url('https://readdy.ai/api/search-image?query=A%20modern%2C%20elegant%20workspace%20with%20a%20person%20designing%20digital%20greeting%20cards%20on%20a%20computer.%20The%20scene%20shows%20a%20creative%20professional%20environment%20with%20soft%20lighting.%20The%20computer%20screen%20displays%20a%20beautiful%20digital%20greeting%20card%20being%20designed.%20Professional%2C%20high-quality%20digital%20illustration%20with%20a%20clean%2C%20minimalist%20aesthetic.&width=600&height=500&seq=10&orientation=portrait');">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<partial name="_NewsletterPartial" />

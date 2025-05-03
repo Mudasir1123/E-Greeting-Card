@@ -1,0 +1,585 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Card Management | E-Greeting Card Platform";
+    Layout = "_AdminLayout";
+}
+
+<!-- Breadcrumbs & Page Title -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+    <div>
+        <div class="flex items-center text-sm text-gray-500 mb-2">
+            <a asp-controller="Admin" asp-action="Dashboard" class="hover:text-primary">Dashboard</a>
+            <div class="w-4 h-4 flex items-center justify-center mx-1">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+            <span class="text-gray-700">Card Management</span>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900">Card Management</h1>
+    </div>
+    <button class="mt-3 sm:mt-0 px-4 py-2 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 whitespace-nowrap">
+        <div class="flex items-center">
+            <div class="w-4 h-4 flex items-center justify-center mr-2">
+                <i class="ri-add-line"></i>
+            </div>
+            Create New Card
+        </div>
+    </button>
+</div>
+
+<!-- Filters & Search -->
+<div class="bg-white rounded shadow p-4 mb-6">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4">
+        <div class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <div class="relative inline-block text-left dropdown">
+                <button class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">
+                    <span>All Categories</span>
+                    <div class="w-4 h-4 flex items-center justify-center ml-2">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="dropdown-content mt-1">
+                    <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">All Categories</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Birthday</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anniversary</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thank You</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Congratulations</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Holiday</a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative inline-block text-left dropdown">
+                <button class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">
+                    <span>Date Range</span>
+                    <div class="w-4 h-4 flex items-center justify-center ml-2">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="dropdown-content mt-1">
+                    <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">All Time</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Today</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Yesterday</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Last 7 Days</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Last 30 Days</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">This Month</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Last Month</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Custom Range</a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative inline-block text-left dropdown">
+                <button class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">
+                    <span>Status</span>
+                    <div class="w-4 h-4 flex items-center justify-center ml-2">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="dropdown-content mt-1">
+                    <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">All Status</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Active</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inactive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative w-full sm:w-64">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <div class="w-4 h-4 flex items-center justify-center text-gray-400">
+                    <i class="ri-search-line"></i>
+                </div>
+            </div>
+            <input type="search" class="pl-10 pr-4 py-2 border border-gray-300 rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-full" placeholder="Search cards...">
+        </div>
+    </div>
+</div>
+
+<!-- Bulk Actions (appears when items are selected) -->
+<div id="bulk-actions" class="bg-blue-50 rounded shadow p-4 mb-6 hidden">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex items-center">
+            <span class="text-sm font-medium text-gray-700 mr-4">3 items selected</span>
+            <button class="text-sm text-gray-600 hover:text-gray-900 mr-4">
+                <div class="flex items-center">
+                    <div class="w-4 h-4 flex items-center justify-center mr-1">
+                        <i class="ri-delete-bin-line"></i>
+                    </div>
+                    Delete
+                </div>
+            </button>
+            <button class="text-sm text-gray-600 hover:text-gray-900">
+                <div class="flex items-center">
+                    <div class="w-4 h-4 flex items-center justify-center mr-1">
+                        <i class="ri-toggle-line"></i>
+                    </div>
+                    Change Status
+                </div>
+            </button>
+        </div>
+        <button class="mt-3 sm:mt-0 text-sm text-gray-600 hover:text-gray-900">
+            <div class="flex items-center">
+                <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-close-line"></i>
+                </div>
+                Cancel Selection
+            </div>
+        </button>
+    </div>
+</div>
+
+<!-- Cards Table -->
+<div class="bg-white rounded shadow overflow-hidden mb-6">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-left">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="select-all">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Card</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <div class="flex items-center">
+                            <span>Category</span>
+                            <button class="ml-1">
+                                <div class="w-4 h-4 flex items-center justify-center text-gray-400">
+                                    <i class="ri-arrow-up-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <div class="flex items-center">
+                            <span>Created</span>
+                            <button class="ml-1">
+                                <div class="w-4 h-4 flex items-center justify-center text-gray-400">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="card-checkbox">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="h-12 w-16 flex-shrink-0 mr-4 bg-gray-100 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=beautiful%2520birthday%2520greeting%2520card%2520design%2520with%2520colorful%2520balloons%2520and%2520confetti%252C%2520cheerful%2520celebration%2520theme%252C%2520professional%2520card%2520design%252C%2520high%2520quality%252C%2520detailed%2520illustration&width=300&height=200&seq=card1&orientation=landscape" alt="Birthday Card" class="h-full w-full object-cover object-top">
+                            </div>
+                            <div>
+                                <a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Birthday Celebration</a>
+                                <p class="text-xs text-gray-500">ID: CARD-2025-0501</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Birthday</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 1, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <label class="custom-switch">
+                            <input type="checkbox" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex items-center justify-end space-x-2">
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Edit">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-edit-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Preview">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-eye-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-red-500" title="Delete">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="card-checkbox">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="h-12 w-16 flex-shrink-0 mr-4 bg-gray-100 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=elegant%2520wedding%2520congratulations%2520card%2520with%2520floral%2520design%252C%2520romantic%2520theme%252C%2520sophisticated%2520wedding%2520card%2520design%252C%2520high%2520quality%252C%2520detailed%2520illustration&width=300&height=200&seq=card2&orientation=landscape" alt="Wedding Card" class="h-full w-full object-cover object-top">
+                            </div>
+                            <div>
+                                <a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Wedding Wishes</a>
+                                <p class="text-xs text-gray-500">ID: CARD-2025-0428</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">Anniversary</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 28, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <label class="custom-switch">
+                            <input type="checkbox" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex items-center justify-end space-x-2">
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Edit">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-edit-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Preview">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-eye-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-red-500" title="Delete">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="card-checkbox">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="h-12 w-16 flex-shrink-0 mr-4 bg-gray-100 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=professional%2520thank%2520you%2520card%2520design%2520with%2520minimalist%2520style%252C%2520gratitude%2520theme%252C%2520elegant%2520thank%2520you%2520card%252C%2520high%2520quality%252C%2520detailed%2520illustration&width=300&height=200&seq=card3&orientation=landscape" alt="Thank You Card" class="h-full w-full object-cover object-top">
+                            </div>
+                            <div>
+                                <a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Gratitude Notes</a>
+                                <p class="text-xs text-gray-500">ID: CARD-2025-0425</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Thank You</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 25, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <label class="custom-switch">
+                            <input type="checkbox" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex items-center justify-end space-x-2">
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Edit">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-edit-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Preview">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-eye-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-red-500" title="Delete">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="card-checkbox">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="h-12 w-16 flex-shrink-0 mr-4 bg-gray-100 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=modern%2520congratulations%2520card%2520design%2520with%2520abstract%2520shapes%2520and%2520vibrant%2520colors%252C%2520celebration%2520theme%252C%2520professional%2520card%2520design%252C%2520high%2520quality%252C%2520detailed%2520illustration&width=300&height=200&seq=card4&orientation=landscape" alt="Congratulations Card" class="h-full w-full object-cover object-top">
+                            </div>
+                            <div>
+                                <a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Achievement Celebration</a>
+                                <p class="text-xs text-gray-500">ID: CARD-2025-0422</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Congratulations</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 22, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <label class="custom-switch">
+                            <input type="checkbox" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex items-center justify-end space-x-2">
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Edit">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-edit-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Preview">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-eye-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-red-500" title="Delete">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="card-checkbox">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="h-12 w-16 flex-shrink-0 mr-4 bg-gray-100 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=festive%2520holiday%2520greeting%2520card%2520with%2520winter%2520scene%252C%2520snow%2520and%2520decorations%252C%2520seasonal%2520theme%252C%2520professional%2520card%2520design%252C%2520high%2520quality%252C%2520detailed%2520illustration&width=300&height=200&seq=card5&orientation=landscape" alt="Holiday Card" class="h-full w-full object-cover object-top">
+                            </div>
+                            <div>
+                                <a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Winter Wonderland</a>
+                                <p class="text-xs text-gray-500">ID: CARD-2025-0420</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Holiday</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 20, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <label class="custom-switch">
+                            <input type="checkbox">
+                            <span class="switch-slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex items-center justify-end space-x-2">
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Edit">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-edit-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Preview">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-eye-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-red-500" title="Delete">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="card-checkbox">
+                                <span class="checkbox-mark"></span>
+                            </label>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="h-12 w-16 flex-shrink-0 mr-4 bg-gray-100 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=sympathy%2520card%2520design%2520with%2520soft%2520colors%2520and%2520delicate%2520flowers%252C%2520comforting%2520theme%252C%2520elegant%2520sympathy%2520card%252C%2520high%2520quality%252C%2520detailed%2520illustration&width=300&height=200&seq=card6&orientation=landscape" alt="Sympathy Card" class="h-full w-full object-cover object-top">
+                            </div>
+                            <div>
+                                <a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Heartfelt Sympathy</a>
+                                <p class="text-xs text-gray-500">ID: CARD-2025-0418</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">Sympathy</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 18, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <label class="custom-switch">
+                            <input type="checkbox" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex items-center justify-end space-x-2">
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Edit">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-edit-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-primary" title="Preview">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-eye-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-1 text-gray-500 hover:text-red-500" title="Delete">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Additional rows would continue here -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Pagination -->
+    <div class="px-6 py-4 bg-white border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center">
+                <span class="text-sm text-gray-700 mr-2">Show</span>
+                <div class="relative inline-block text-left dropdown">
+                    <button class="flex items-center justify-between px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">
+                        <span>10</span>
+                        <div class="w-4 h-4 flex items-center justify-center ml-1">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="dropdown-content mt-1">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">10</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">25</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">50</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">100</a>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-sm text-gray-700 ml-2">entries</span>
+            </div>
+            <div class="mt-4 sm:mt-0 flex items-center justify-center">
+                <span class="text-sm text-gray-700 mr-4">Showing 1 to 10 of 42 entries</span>
+                <nav class="flex items-center space-x-1">
+                    <button class="px-3 py-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 flex items-center justify-center mr-1">
+                                <i class="ri-arrow-left-s-line"></i>
+                            </div>
+                            Previous
+                        </div>
+                    </button>
+                    <button class="px-3 py-1 text-sm font-medium text-white bg-primary border border-primary rounded-button whitespace-nowrap">1</button>
+                    <button class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">2</button>
+                    <button class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">3</button>
+                    <button class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">4</button>
+                    <button class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">5</button>
+                    <button class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-button hover:bg-gray-50 whitespace-nowrap">
+                        <div class="flex items-center">
+                            Next
+                            <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </div>
+                        </div>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle select all checkbox
+            const selectAllCheckbox = document.getElementById('select-all');
+            const cardCheckboxes = document.querySelectorAll('.card-checkbox');
+            const bulkActions = document.getElementById('bulk-actions');
+
+            selectAllCheckbox.addEventListener('change', function() {
+                const isChecked = this.checked;
+                cardCheckboxes.forEach(checkbox => {
+                    checkbox.checked = isChecked;
+                });
+                updateBulkActionsVisibility();
+            });
+
+            // Handle individual checkboxes
+            cardCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateSelectAllCheckbox();
+                    updateBulkActionsVisibility();
+                });
+            });
+
+            // Update the "select all" checkbox state
+            function updateSelectAllCheckbox() {
+                const checkedCount = document.querySelectorAll('.card-checkbox:checked').length;
+                selectAllCheckbox.checked = checkedCount === cardCheckboxes.length && cardCheckboxes.length > 0;
+            }
+
+            // Show/hide bulk actions based on selection
+            function updateBulkActionsVisibility() {
+                const checkedCount = document.querySelectorAll('.card-checkbox:checked').length;
+                if (checkedCount > 0) {
+                    bulkActions.classList.remove('hidden');
+                } else {
+                    bulkActions.classList.add('hidden');
+                }
+            }
+
+            // Cancel selection button
+            const cancelSelectionButton = document.querySelector('#bulk-actions button:last-child');
+            if (cancelSelectionButton) {
+                cancelSelectionButton.addEventListener('click', function() {
+                    selectAllCheckbox.checked = false;
+                    cardCheckboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    bulkActions.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+}

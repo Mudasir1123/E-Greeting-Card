@@ -1,0 +1,220 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex flex-col">
+            <!-- Logo -->
+            <div class="p-4 flex items-center border-b border-gray-800">
+                <a asp-controller="Home" asp-action="Index" class="text-2xl font-['Pacifico'] text-white">logo</a>
+            </div>
+
+            <!-- Admin Profile -->
+            <div class="p-4 border-b border-gray-800 flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20business%20person%20with%20a%20friendly%20smile%2C%20high%20quality%2C%20corporate%20portrait%2C%20neutral%20background%2C%20professional%20attire&width=100&height=100&seq=admin1&orientation=squarish" alt="Admin" class="object-cover w-full h-full">
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm font-medium">Emily Johnson</p>
+                    <p class="text-xs text-gray-400">Admin</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-4">
+                <ul class="space-y-1 px-2">
+                    <li>
+                        <a asp-controller="Admin" asp-action="Dashboard" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Dashboard" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-dashboard-line"></i>
+                            </div>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="CardManagement" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "CardManagement" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            Card Management
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="UserManagement" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "UserManagement" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            User Management
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Categories" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Categories" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-folder-line"></i>
+                            </div>
+                            Categories
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Templates" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Templates" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-layout-grid-line"></i>
+                            </div>
+                            Templates
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Subscriptions" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Subscriptions" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            Subscriptions
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Analytics" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Analytics" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-line-chart-line"></i>
+                            </div>
+                            Analytics
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Settings" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Settings" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-settings-line"></i>
+                            </div>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Logout Button -->
+            <div class="p-4 border-t border-gray-800">
+                <button class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-button hover:bg-gray-700 whitespace-nowrap">
+                    <div class="w-5 h-5 flex items-center justify-center mr-2">
+                        <i class="ri-logout-box-line"></i>
+                    </div>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <div class="w-4 h-4 flex items-center justify-center text-gray-400">
+                                    <i class="ri-search-line"></i>
+                                </div>
+                            </div>
+                            <input type="search" class="pl-10 pr-4 py-2 border-none rounded-md bg-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-64" placeholder="Search...">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="text-sm text-gray-600">
+                            <span>@DateTime.Now.ToString("MMM d, yyyy")</span>
+                            <span class="mx-1">•</span>
+                            <span id="current-time">@DateTime.Now.ToString("h:mm tt")</span>
+                        </div>
+
+                        <div class="relative">
+                            <button class="relative p-1 text-gray-600 rounded-full hover:bg-gray-100 focus:outline-none">
+                                <div class="w-6 h-6 flex items-center justify-center">
+                                    <i class="ri-notification-3-line"></i>
+                                </div>
+                                <span class="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full">3</span>
+                            </button>
+                        </div>
+
+                        <div class="relative">
+                            <button class="flex items-center space-x-2 focus:outline-none">
+                                <div class="w-8 h-8 rounded-full overflow-hidden">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20business%20person%20with%20a%20friendly%20smile%2C%20high%20quality%2C%20corporate%20portrait%2C%20neutral%20background%2C%20professional%20attire&width=100&height=100&seq=admin1&orientation=squarish" alt="Admin" class="object-cover w-full h-full">
+                                </div>
+                                <span class="text-sm font-medium text-gray-700">Emily Johnson</span>
+                                <div class="w-4 h-4 flex items-center justify-center text-gray-500">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-y-auto bg-gray-50 p-6">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update time
+            function updateTime() {
+                const now = new Date();
+                let hours = now.getHours();
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                document.getElementById('current-time').textContent = `${hours}:${minutes} ${ampm}`;
+            }
+
+            updateTime();
+            setInterval(updateTime, 60000);
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,997 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Subscription Management";
+    Layout = "_AdminLayout";
+}
+
+<div class="max-w-7xl mx-auto">
+    <!-- Page Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-900">Subscription Management</h1>
+            <p class="mt-1 text-sm text-gray-500">Manage subscription plans, view active subscriptions, and analyze subscription metrics</p>
+        </div>
+        <div class="flex space-x-3 mt-4 md:mt-0">
+            <button class="px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 whitespace-nowrap">
+                <div class="flex items-center">
+                    <i class="ri-download-line mr-2"></i>
+                    Export Data
+                </div>
+            </button>
+            <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:bg-primary/90 whitespace-nowrap">
+                <div class="flex items-center">
+                    <i class="ri-add-line mr-2"></i>
+                    New Subscription Plan
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Subscription Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="bg-white rounded shadow p-5">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Active Subscriptions</p>
+                    <p class="text-2xl font-bold mt-1">8,742</p>
+                    <div class="flex items-center mt-2 text-xs font-medium text-green-600">
+                        <i class="ri-arrow-up-line mr-1"></i>
+                        <span>5.2% from last month</span>
+                    </div>
+                </div>
+                <div class="w-12 h-12 flex items-center justify-center bg-indigo-100 rounded-full text-primary">
+                    <i class="ri-user-follow-line ri-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded shadow p-5">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Monthly Revenue (MRR)</p>
+                    <p class="text-2xl font-bold mt-1">$42,856</p>
+                    <div class="flex items-center mt-2 text-xs font-medium text-green-600">
+                        <i class="ri-arrow-up-line mr-1"></i>
+                        <span>7.8% from last month</span>
+                    </div>
+                </div>
+                <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-full text-green-600">
+                    <i class="ri-money-dollar-circle-line ri-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded shadow p-5">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Avg. Revenue Per User</p>
+                    <p class="text-2xl font-bold mt-1">$4.90</p>
+                    <div class="flex items-center mt-2 text-xs font-medium text-green-600">
+                        <i class="ri-arrow-up-line mr-1"></i>
+                        <span>2.3% from last month</span>
+                    </div>
+                </div>
+                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full text-blue-600">
+                    <i class="ri-coin-line ri-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded shadow p-5">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Churn Rate</p>
+                    <p class="text-2xl font-bold mt-1">2.1%</p>
+                    <div class="flex items-center mt-2 text-xs font-medium text-red-600">
+                        <i class="ri-arrow-up-line mr-1"></i>
+                        <span>0.3% from last month</span>
+                    </div>
+                </div>
+                <div class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full text-red-600">
+                    <i class="ri-user-unfollow-line ri-xl"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="bg-white rounded shadow mb-6">
+        <div class="border-b border-gray-200">
+            <div class="flex px-4 py-1 overflow-x-auto">
+                <button id="tab-overview" class="px-4 py-3 text-sm font-medium tab-active rounded-full mx-1 whitespace-nowrap">Overview</button>
+                <button id="tab-plans" class="px-4 py-3 text-sm font-medium tab-inactive rounded-full mx-1 whitespace-nowrap">Subscription Plans</button>
+                <button id="tab-subscribers" class="px-4 py-3 text-sm font-medium tab-inactive rounded-full mx-1 whitespace-nowrap">Active Subscribers</button>
+                <button id="tab-history" class="px-4 py-3 text-sm font-medium tab-inactive rounded-full mx-1 whitespace-nowrap">Subscription History</button>
+            </div>
+        </div>
+
+        <!-- Tab Content: Overview -->
+        <div id="content-overview" class="p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Subscription Revenue Trend</h3>
+                    <div id="revenue-trend-chart" class="h-72"></div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Subscription Plan Distribution</h3>
+                    <div id="plan-distribution-chart" class="h-72"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-medium mb-4">New vs Churned Subscribers</h3>
+                    <div id="subscriber-churn-chart" class="h-72"></div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Revenue Forecast</h3>
+                    <div id="revenue-forecast-chart" class="h-72"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Subscription Plans -->
+        <div id="content-plans" class="p-6 hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-medium">Active Subscription Plans</h3>
+                <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:bg-primary/90 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <i class="ri-add-line mr-2"></i>
+                        Add New Plan
+                    </div>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Basic Plan -->
+                <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden">
+                    <div class="bg-gray-50 px-5 py-4 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-lg font-medium text-gray-900">Basic Plan</h4>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-2xl font-bold mt-2">$4.99<span class="text-sm font-normal text-gray-500">/month</span></p>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">10 cards per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Basic templates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Email delivery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-close-line text-gray-300 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-400">Premium templates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-close-line text-gray-300 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-400">Scheduled sending</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">3,245 subscribers</span>
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden">
+                    <div class="bg-gray-50 px-5 py-4 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-lg font-medium text-gray-900">Premium Plan</h4>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-2xl font-bold mt-2">$9.99<span class="text-sm font-normal text-gray-500">/month</span></p>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">30 cards per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">All templates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Email & SMS delivery</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Scheduled sending</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-close-line text-gray-300 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-400">Custom branding</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">4,128 subscribers</span>
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden">
+                    <div class="bg-gray-50 px-5 py-4 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-lg font-medium text-gray-900">Business Plan</h4>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <p class="text-2xl font-bold mt-2">$24.99<span class="text-sm font-normal text-gray-500">/month</span></p>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Unlimited cards</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">All templates + exclusive</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">All delivery methods</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Advanced scheduling</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 mt-0.5 mr-2"></i>
+                                <span class="text-sm text-gray-600">Custom branding</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">1,369 subscribers</span>
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Active Subscribers -->
+        <div id="content-subscribers" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <h3 class="text-lg font-medium">Active Subscribers</h3>
+                    <div class="text-sm text-gray-500">Total: 8,742</div>
+                </div>
+                <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="ri-search-line text-gray-400"></i>
+                        </div>
+                        <input type="search" class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-full md:w-64" placeholder="Search subscribers...">
+                    </div>
+                    <div class="relative">
+                        <select class="appearance-none pl-4 pr-10 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary/20 w-full md:w-40">
+                            <option>All Plans</option>
+                            <option>Basic Plan</option>
+                            <option>Premium Plan</option>
+                            <option>Business Plan</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="ri-arrow-down-s-line text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subscriber</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Plan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Next Billing</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                                        <img src="/img/avatars/avatar-1.jpg" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">Alexandra Reynolds</p>
+                                        <p class="text-xs text-gray-500">alexandra.r@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-900">Premium Plan</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Apr 12, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">May 12, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-yellow-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-refresh-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                                        <img src="/img/avatars/avatar-2.jpg" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">Michael Thompson</p>
+                                        <p class="text-xs text-gray-500">michael.t@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-900">Business Plan</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Mar 28, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Apr 28, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-yellow-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-refresh-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                                        <img src="/img/avatars/avatar-3.jpg" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">Sophia Martinez</p>
+                                        <p class="text-xs text-gray-500">sophia.m@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-900">Basic Plan</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Apr 15, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">May 15, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Expiring</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-yellow-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-refresh-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                                        <img src="/img/avatars/avatar-4.jpg" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">James Wilson</p>
+                                        <p class="text-xs text-gray-500">james.w@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-900">Premium Plan</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Apr 02, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">May 02, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-yellow-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-refresh-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                                        <img src="/img/avatars/avatar-5.jpg" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900">Emily Johnson</p>
+                                        <p class="text-xs text-gray-500">emily.j@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-900">Business Plan</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Mar 18, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-sm text-gray-500">Apr 18, 2025</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <div class="flex space-x-2">
+                                    <button class="p-1.5 text-gray-500 hover:text-primary rounded-full hover:bg-gray-100">
+                                        <i class="ri-pencil-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-yellow-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-refresh-line"></i>
+                                    </button>
+                                    <button class="p-1.5 text-gray-500 hover:text-red-500 rounded-full hover:bg-gray-100">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+                    <div class="text-sm text-gray-500">
+                        Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">8,742</span> subscribers
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            Previous
+                        </button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Subscription History -->
+        <div id="content-history" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
+                <h3 class="text-lg font-medium mb-4 md:mb-0">Recent Subscription Activities</h3>
+                <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+                    <div class="relative">
+                        <select class="appearance-none pl-4 pr-10 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary/20 w-full md:w-40">
+                            <option>All Activities</option>
+                            <option>New Subscriptions</option>
+                            <option>Renewals</option>
+                            <option>Cancellations</option>
+                            <option>Upgrades</option>
+                            <option>Downgrades</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="ri-arrow-down-s-line text-gray-500"></i>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <select class="appearance-none pl-4 pr-10 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary/20 w-full md:w-40">
+                            <option>Last 30 Days</option>
+                            <option>Last 7 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>This Year</option>
+                            <option>Custom Range</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="ri-arrow-down-s-line text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden">
+                <ul class="divide-y divide-gray-200">
+                    <li class="p-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-full text-green-600 flex-shrink-0">
+                                <i class="ri-user-add-line ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">New subscription</p>
+                                <p class="text-xs text-gray-500 mt-1">Alexandra Reynolds subscribed to Premium Plan</p>
+                                <p class="text-xs text-gray-400 mt-1">May 3, 2025 • 10:24 AM</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">New</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="p-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 flex-shrink-0">
+                                <i class="ri-arrow-up-line ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Plan upgrade</p>
+                                <p class="text-xs text-gray-500 mt-1">Michael Thompson upgraded from Premium to Business Plan</p>
+                                <p class="text-xs text-gray-400 mt-1">May 2, 2025 • 3:45 PM</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">Upgrade</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="p-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-yellow-100 rounded-full text-yellow-600 flex-shrink-0">
+                                <i class="ri-refresh-line ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Subscription renewed</p>
+                                <p class="text-xs text-gray-500 mt-1">James Wilson renewed Premium Plan subscription</p>
+                                <p class="text-xs text-gray-400 mt-1">May 2, 2025 • 9:12 AM</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Renewal</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="p-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full text-red-600 flex-shrink-0">
+                                <i class="ri-close-line ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Subscription cancelled</p>
+                                <p class="text-xs text-gray-500 mt-1">David Anderson cancelled Basic Plan subscription</p>
+                                <p class="text-xs text-gray-400 mt-1">May 1, 2025 • 4:30 PM</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Cancelled</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="p-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-full text-purple-600 flex-shrink-0">
+                                <i class="ri-arrow-down-line ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Plan downgrade</p>
+                                <p class="text-xs text-gray-500 mt-1">Sophia Martinez downgraded from Premium to Basic Plan</p>
+                                <p class="text-xs text-gray-400 mt-1">Apr 30, 2025 • 11:52 AM</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-800">Downgrade</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="p-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full text-red-600 flex-shrink-0">
+                                <i class="ri-error-warning-line ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Payment failed</p>
+                                <p class="text-xs text-gray-500 mt-1">Failed payment for Robert Clark's Premium Plan subscription</p>
+                                <p class="text-xs text-gray-400 mt-1">Apr 28, 2025 • 8:15 AM</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Failed</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="px-5 py-4 border-t border-gray-200 text-center">
+                    <button class="text-sm text-primary font-medium hover:text-primary/80 whitespace-nowrap">View All Subscription Activities</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabs = ['overview', 'plans', 'subscribers', 'history'];
+            tabs.forEach(tab => {
+                document.getElementById(`tab-${tab}`).addEventListener('click', function() {
+                    tabs.forEach(t => {
+                        document.getElementById(`tab-${t}`).classList.remove('tab-active');
+                        document.getElementById(`tab-${t}`).classList.add('tab-inactive');
+                        document.getElementById(`content-${t}`).classList.add('hidden');
+                    });
+                    this.classList.remove('tab-inactive');
+                    this.classList.add('tab-active');
+                    document.getElementById(`content-${tab}`).classList.remove('hidden');
+                });
+            });
+
+            // Revenue Trend Chart
+            const revenueTrendChart = echarts.init(document.getElementById('revenue-trend-chart'));
+            const revenueTrendOption = {
+                animation: false,
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    borderColor: '#eee',
+                    borderWidth: 1,
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    top: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ddd'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#666'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: '#666'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: '#eee'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'Monthly Revenue',
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            color: 'rgba(87, 181, 231, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(87, 181, 231, 0.2)'
+                                }, {
+                                    offset: 1, color: 'rgba(87, 181, 231, 0.01)'
+                                }]
+                            }
+                        },
+                        data: [28000, 30000, 32000, 34000, 36000, 38000, 39000, 40000, 41000, 42000, 43000, 44000]
+                    }
+                ]
+            };
+            revenueTrendChart.setOption(revenueTrendOption);
+
+            // Plan Distribution Chart
+            const planDistributionChart = echarts.init(document.getElementById('plan-distribution-chart'));
+            const planDistributionOption = {
+                animation: false,
+                tooltip: {
+                    trigger: 'item',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    borderColor: '#eee',
+                    borderWidth: 1,
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                legend: {
+                    orient: 'vertical',
+                    right: 10,
+                    top: 'center',
+                    textStyle: {
+                        color: '#666'
+                    }
+                },
+                series: [
+                    {
+                        name: 'Subscription Plans',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        center: ['40%', '50%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 8,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false
+                        },
+                        emphasis: {
+                            label: {
+                                show: false
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 3245, name: 'Basic Plan', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+                            { value: 4128, name: 'Premium Plan', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+                            { value: 1369, name: 'Business Plan', itemStyle: { color: 'rgba(251, 191, 114, 1)' } }
+                        ]
+                    }
+                ]
+            };
+            planDistributionChart.setOption(planDistributionOption);
+
+            // Subscriber Churn Chart
+            const subscriberChurnChart = echarts.init(document.getElementById('subscriber-churn-chart'));
+            const subscriberChurnOption = {
+                animation: false,
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    borderColor: '#eee',
+                    borderWidth: 1,
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                legend: {
+                    data: ['New Subscribers', 'Churned Subscribers'],
+                    bottom: 0
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    top: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ddd'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#666'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: '#666'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: '#eee'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'New Subscribers',
+                        type: 'bar',
+                        barWidth: '30%',
+                        itemStyle: {
+                            color: 'rgba(87, 181, 231, 1)',
+                            borderRadius: [4, 4, 0, 0]
+                        },
+                        data: [420, 450, 480, 520, 540, 560, 580, 600, 620, 640, 660, 680]
+                    },
+                    {
+                        name: 'Churned Subscribers',
+                        type: 'bar',
+                        barWidth: '30%',
+                        itemStyle: {
+                            color: 'rgba(252, 141, 98, 1)',
+                            borderRadius: [4, 4, 0, 0]
+                        },
+                        data: [120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230]
+                    }
+                ]
+            };
+            subscriberChurnChart.setOption(subscriberChurnOption);
+
+            // Revenue Forecast Chart
+            const revenueForecastChart = echarts.init(document.getElementById('revenue-forecast-chart'));
+            const revenueForecastOption = {
+                animation: false,
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    borderColor: '#eee',
+                    borderWidth: 1,
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                legend: {
+                    data: ['Actual Revenue', 'Forecasted Revenue'],
+                    bottom: 0
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    top: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ddd'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#666'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: '#666'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: '#eee'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'Actual Revenue',
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            color: 'rgba(87, 181, 231, 1)'
+                        },
+                        data: [38000, 39000, 40000, 42000, 43000, null, null, null, null, null, null, null]
+                    },
+                    {
+                        name: 'Forecasted Revenue',
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            type: 'dashed',
+                            color: 'rgba(141, 211, 199, 1)'
+                        },
+                        data: [null, null, null, null, 43000, 44500, 46000, 47500, 49000, 50500, 52000, 53500]
+                    }
+                ]
+            };
+            revenueForecastChart.setOption(revenueForecastOption);
+
+            // Resize charts when window size changes
+            window.addEventListener('resize', function() {
+                revenueTrendChart.resize();
+                planDistributionChart.resize();
+                subscriberChurnChart.resize();
+                revenueForecastChart.resize();
+            });
+        });
+    </script>
+}

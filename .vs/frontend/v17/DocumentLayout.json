@@ -1,0 +1,603 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\M Mudasir\\Pictures\\frontend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\analytics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\analytics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\subscriptions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\subscriptions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\wwwroot\\css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\wwwroot\\css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\templates.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\templates.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\categories.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\categories.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\usermanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\usermanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\cardmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\cardmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\wwwroot\\css\\admin.css||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\wwwroot\\css\\admin.css||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\subscription\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\subscription\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\subscriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\subscriptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\price\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\price\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\card\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\card\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\pricecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\pricecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\cardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\cardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_featurespartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_featurespartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_testimonialspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_testimonialspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_pricingpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_pricingpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_newsletterpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_newsletterpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\card.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\card.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 229,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "admin.css",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\css\\admin.css",
+              "RelativeDocumentMoniker": "frontend\\wwwroot\\css\\admin.css",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\css\\admin.css",
+              "RelativeToolTip": "frontend\\wwwroot\\css\\admin.css",
+              "ViewState": "AgIAAJQCAAAAAAAAAAAwwJwCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-03T05:25:06.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CardManagement.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\CardManagement.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\CardManagement.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\CardManagement.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\CardManagement.cshtml",
+              "ViewState": "AgIAADsCAAAAAAAAAAAiwEkCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T05:24:50.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswCcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T05:14:37.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Subscriptions.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Subscriptions.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\Subscriptions.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Subscriptions.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\Subscriptions.cshtml",
+              "ViewState": "AgIAAM4DAAAAAAAAAAAiwOUDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T06:20:47.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAE8BAAAAAAAAAAAiwFoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:00:57.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "frontend\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "frontend\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAALcAAAAAAAAAAAAgwMYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-02T05:14:02.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Settings.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Settings.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\Settings.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Settings.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\Settings.cshtml",
+              "ViewState": "AgIAAJMDAAAAAAAAAAAwwKADAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T06:37:20.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Analytics.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Analytics.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\Analytics.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Analytics.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\Analytics.cshtml",
+              "ViewState": "AgIAACwEAAAAAAAAAAAwwDkEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T06:31:20.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAADoCAAAAAAAAAAAiwEUCAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T05:16:24.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserManagement.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\UserManagement.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\UserManagement.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\UserManagement.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\UserManagement.cshtml",
+              "ViewState": "AgIAAHUCAAAAAAAAAAAiwIMCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T05:54:04.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Categories.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Categories.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\Categories.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Categories.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\Categories.cshtml",
+              "ViewState": "AgIAAIgCAAAAAAAAAAAwwJUCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T06:09:30.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Templates.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Templates.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\Templates.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\Templates.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\Templates.cshtml",
+              "ViewState": "AgIAAOkCAAAAAAAAAAAiwPYCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T06:13:38.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "admin.css",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\css\\admin.css",
+              "RelativeDocumentMoniker": "frontend\\wwwroot\\css\\admin.css",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\css\\admin.css",
+              "RelativeToolTip": "frontend\\wwwroot\\css\\admin.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwJwCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-03T05:18:16.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAiwNwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T05:15:46.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\About\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\About\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\About\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\About\\Index.cshtml",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAwwCUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T04:45:57.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AboutController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\AboutController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\AboutController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\AboutController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\AboutController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T04:43:00.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Contact\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Contact\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Contact\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Contact\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T04:48:04.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Subscription\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Subscription\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Subscription\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Subscription\\Index.cshtml",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAwwNIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T06:03:44.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Price\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Price\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Price\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Price\\Index.cshtml",
+              "ViewState": "AgIAAMgBAAAAAAAAAAAiwNMBAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T06:02:32.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SubscriptionController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\SubscriptionController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\SubscriptionController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\SubscriptionController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\SubscriptionController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAowAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T05:29:57.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\ContactController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\ContactController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\ContactController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\ContactController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T04:47:24.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Account\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Account\\SignUp.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Account\\SignUp.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Account\\SignUp.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:52:27.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAN0AAAAAAAAAAAAAAOAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:52:04.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAqwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T05:27:29.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Card\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Card\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Card\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Card\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:24:18.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "_TestimonialsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_TestimonialsPartial.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_TestimonialsPartial.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_TestimonialsPartial.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_TestimonialsPartial.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAiwFYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:26:47.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAIAwwCsAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T04:49:39.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CardController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\CardController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\CardController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\CardController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\CardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T05:28:05.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PriceController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\PriceController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\PriceController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\PriceController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\PriceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T05:29:29.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "_PricingPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_PricingPartial.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_PricingPartial.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_PricingPartial.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_PricingPartial.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAAAiwMMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:26:29.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "_FeaturesPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_FeaturesPartial.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_FeaturesPartial.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_FeaturesPartial.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_FeaturesPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:25:44.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_NewsletterPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_NewsletterPartial.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_NewsletterPartial.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_NewsletterPartial.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_NewsletterPartial.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:26:07.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Card.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Card.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Card.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Card.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Card.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T05:23:48.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Program.cs",
+              "RelativeDocumentMoniker": "frontend\\Program.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Program.cs",
+              "RelativeToolTip": "frontend\\Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T05:17:43.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "frontend\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "frontend\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T05:17:27.166Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Sign Up - E-Greeting";
+}
+
+<main class="flex-grow flex items-center justify-center py-12 px-4 bg-gray-50">
+    <div class="bg-white rounded-lg shadow-md w-full max-w-md p-8">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Create an Account</h1>
+            <p class="text-gray-600">Join us today</p>
+        </div>
+
+        @if (ViewData.ModelState.ErrorCount > 0)
+        {
+            <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-md">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+        }
+
+        <form asp-controller="Account" asp-action="SignUp" method="post">
+            <div class="space-y-6">
+                <!-- Name Fields -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="block w-full px-3 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+                    </div>
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="block w-full px-3 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                        </div>
+                        <input type="email" id="email" name="email" class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <!-- Password Fields -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                        </div>
+                        <input type="password" id="password" name="password" class="block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                        </div>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <!-- Terms Checkbox -->
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms" name="terms" class="custom-checkbox" required>
+                    <label for="terms" class="ml-2 block text-sm text-gray-700">
+                        I agree to the <a href="#" class="text-primary hover:text-primary/80">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <!-- Sign Up Button -->
+                <button type="submit" class="w-full !rounded-button bg-primary text-white py-2.5 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center">
+                    <span>Sign Up</span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Login Link -->
+        <div class="mt-8 text-center">
+            <p class="text-gray-600">
+                Already have an account?
+                <a asp-controller="Account" asp-action="Login" class="font-medium text-primary hover:text-primary/80">Log In</a>
+            </p>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Form validation
+          const form = document.querySelector('form');
+
+          form.addEventListener('submit', function(e) {
+            let isValid = true;
+
+            // Validate passwords match
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+
+            if (password.value !== confirmPassword.value) {
+              confirmPassword.classList.add('border-red-500');
+              isValid = false;
+            } else {
+              confirmPassword.classList.remove('border-red-500');
+            }
+
+            // Validate terms checkbox
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
+              terms.parentElement.classList.add('text-red-500');
+              isValid = false;
+            } else {
+              terms.parentElement.classList.remove('text-red-500');
+            }
+
+            if (!isValid) {
+              e.preventDefault();
+            }
+          });
+        });
+    </script>
+}

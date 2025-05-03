@@ -1,0 +1,928 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Settings";
+    Layout = "_AdminLayout";
+}
+
+<div class="space-y-6">
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-semibold text-gray-900">Settings</h1>
+            <p class="mt-1 text-sm text-gray-500">Manage your platform settings and configurations.</p>
+        </div>
+    </div>
+
+    <!-- Settings Tabs -->
+    <div class="bg-white rounded-lg shadow">
+        <div class="border-b border-gray-200">
+            <nav class="flex -mb-px overflow-x-auto" aria-label="Settings tabs">
+                <button class="tab-button active whitespace-nowrap py-4 px-6 border-b-2 border-primary text-primary font-medium text-sm" data-tab="general">
+                    <div class="flex items-center">
+                        <i class="ri-settings-4-line mr-2"></i>
+                        General
+                    </div>
+                </button>
+                <button class="tab-button whitespace-nowrap py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-tab="account">
+                    <div class="flex items-center">
+                        <i class="ri-user-settings-line mr-2"></i>
+                        Account
+                    </div>
+                </button>
+                <button class="tab-button whitespace-nowrap py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-tab="email">
+                    <div class="flex items-center">
+                        <i class="ri-mail-settings-line mr-2"></i>
+                        Email
+                    </div>
+                </button>
+                <button class="tab-button whitespace-nowrap py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-tab="payment">
+                    <div class="flex items-center">
+                        <i class="ri-bank-card-line mr-2"></i>
+                        Payment
+                    </div>
+                </button>
+                <button class="tab-button whitespace-nowrap py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-tab="security">
+                    <div class="flex items-center">
+                        <i class="ri-shield-keyhole-line mr-2"></i>
+                        Security
+                    </div>
+                </button>
+                <button class="tab-button whitespace-nowrap py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-tab="integrations">
+                    <div class="flex items-center">
+                        <i class="ri-plug-line mr-2"></i>
+                        Integrations
+                    </div>
+                </button>
+                <button class="tab-button whitespace-nowrap py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm" data-tab="appearance">
+                    <div class="flex items-center">
+                        <i class="ri-palette-line mr-2"></i>
+                        Appearance
+                    </div>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="p-6">
+            <!-- General Settings -->
+            <div id="general" class="tab-content active">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Site Information</h3>
+                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                            <div>
+                                <label for="site-name" class="block text-sm font-medium text-gray-700">Site Name</label>
+                                <input type="text" id="site-name" name="site-name" value="E-Greeting Cards" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="site-url" class="block text-sm font-medium text-gray-700">Site URL</label>
+                                <input type="text" id="site-url" name="site-url" value="https://egreetingcards.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="admin-email" class="block text-sm font-medium text-gray-700">Admin Email</label>
+                                <input type="email" id="admin-email" name="admin-email" value="admin@egreetingcards.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="timezone" class="block text-sm font-medium text-gray-700">Timezone</label>
+                                <select id="timezone" name="timezone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    <option value="UTC">UTC</option>
+                                    <option value="EST" selected>Eastern Time (EST)</option>
+                                    <option value="CST">Central Time (CST)</option>
+                                    <option value="MST">Mountain Time (MST)</option>
+                                    <option value="PST">Pacific Time (PST)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Content Settings</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Enable User-Generated Content</h4>
+                                    <p class="text-sm text-gray-500">Allow users to create and share their own card designs</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Content Moderation</h4>
+                                    <p class="text-sm text-gray-500">Automatically moderate user-generated content</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Allow Public Sharing</h4>
+                                    <p class="text-sm text-gray-500">Let users share cards on social media</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <label for="max-upload-size" class="block text-sm font-medium text-gray-700">Maximum Upload Size (MB)</label>
+                                <input type="number" id="max-upload-size" name="max-upload-size" value="10" min="1" max="50" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">SEO Settings</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="meta-title" class="block text-sm font-medium text-gray-700">Default Meta Title</label>
+                                <input type="text" id="meta-title" name="meta-title" value="E-Greeting Cards | Send Beautiful Digital Cards" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="meta-description" class="block text-sm font-medium text-gray-700">Default Meta Description</label>
+                                <textarea id="meta-description" name="meta-description" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">Create and send beautiful digital greeting cards for any occasion. Choose from hundreds of templates or create your own custom design.</textarea>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Enable Sitemap</h4>
+                                    <p class="text-sm text-gray-500">Automatically generate and update sitemap.xml</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div id="account" class="tab-content hidden">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">User Account Settings</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Allow User Registration</h4>
+                                    <p class="text-sm text-gray-500">Enable new user registrations</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Email Verification</h4>
+                                    <p class="text-sm text-gray-500">Require email verification for new accounts</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Allow Social Login</h4>
+                                    <p class="text-sm text-gray-500">Enable login with social media accounts</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Password Policy</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="min-password-length" class="block text-sm font-medium text-gray-700">Minimum Password Length</label>
+                                <input type="number" id="min-password-length" name="min-password-length" value="8" min="6" max="20" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Require Special Characters</h4>
+                                    <p class="text-sm text-gray-500">Passwords must include special characters</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Require Numbers</h4>
+                                    <p class="text-sm text-gray-500">Passwords must include at least one number</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <label for="password-expiry" class="block text-sm font-medium text-gray-700">Password Expiry (days)</label>
+                                <input type="number" id="password-expiry" name="password-expiry" value="90" min="0" max="365" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                <p class="mt-1 text-xs text-gray-500">Set to 0 for no expiration</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Settings -->
+            <div id="email" class="tab-content hidden">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Email Provider</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="email-provider" class="block text-sm font-medium text-gray-700">Provider</label>
+                                <select id="email-provider" name="email-provider" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    <option value="smtp" selected>SMTP</option>
+                                    <option value="sendgrid">SendGrid</option>
+                                    <option value="mailchimp">Mailchimp</option>
+                                    <option value="aws-ses">Amazon SES</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="smtp-host" class="block text-sm font-medium text-gray-700">SMTP Host</label>
+                                <input type="text" id="smtp-host" name="smtp-host" value="smtp.example.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="smtp-port" class="block text-sm font-medium text-gray-700">SMTP Port</label>
+                                <input type="number" id="smtp-port" name="smtp-port" value="587" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="smtp-username" class="block text-sm font-medium text-gray-700">SMTP Username</label>
+                                <input type="text" id="smtp-username" name="smtp-username" value="user@example.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="smtp-password" class="block text-sm font-medium text-gray-700">SMTP Password</label>
+                                <input type="password" id="smtp-password" name="smtp-password" value="••••••••••••" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Use SSL/TLS</h4>
+                                    <p class="text-sm text-gray-500">Enable secure connection</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                    <i class="ri-mail-send-line mr-2"></i>
+                                    Send Test Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Email Templates</h3>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                                <div class="bg-white p-4 rounded-md border border-gray-200">
+                                    <h4 class="text-sm font-medium text-gray-900">Welcome Email</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Sent when a new user registers</p>
+                                    <div class="mt-3 flex justify-end">
+                                        <button type="button" class="text-primary text-sm hover:text-primary-dark">Edit Template</button>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-md border border-gray-200">
+                                    <h4 class="text-sm font-medium text-gray-900">Password Reset</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Sent when a user requests a password reset</p>
+                                    <div class="mt-3 flex justify-end">
+                                        <button type="button" class="text-primary text-sm hover:text-primary-dark">Edit Template</button>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-md border border-gray-200">
+                                    <h4 class="text-sm font-medium text-gray-900">Card Received</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Sent when a user receives a card</p>
+                                    <div class="mt-3 flex justify-end">
+                                        <button type="button" class="text-primary text-sm hover:text-primary-dark">Edit Template</button>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-md border border-gray-200">
+                                    <h4 class="text-sm font-medium text-gray-900">Subscription Confirmation</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Sent when a user subscribes to a plan</p>
+                                    <div class="mt-3 flex justify-end">
+                                        <button type="button" class="text-primary text-sm hover:text-primary-dark">Edit Template</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Settings -->
+            <div id="payment" class="tab-content hidden">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Payment Gateways</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-md border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                            <i class="ri-stripe-line text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-gray-900">Stripe</h4>
+                                            <p class="text-xs text-gray-500">Credit card payments</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="mt-4 space-y-3">
+                                    <div>
+                                        <label for="stripe-public-key" class="block text-sm font-medium text-gray-700">Public Key</label>
+                                        <input type="text" id="stripe-public-key" name="stripe-public-key" value="pk_test_51H..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="stripe-secret-key" class="block text-sm font-medium text-gray-700">Secret Key</label>
+                                        <input type="password" id="stripe-secret-key" name="stripe-secret-key" value="sk_test_51H..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="text-sm font-medium text-gray-900">Test Mode</h4>
+                                            <p class="text-sm text-gray-500">Use Stripe test environment</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-md border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                            <i class="ri-paypal-line text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-gray-900">PayPal</h4>
+                                            <p class="text-xs text-gray-500">PayPal payments</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="mt-4 space-y-3">
+                                    <div>
+                                        <label for="paypal-client-id" class="block text-sm font-medium text-gray-700">Client ID</label>
+                                        <input type="text" id="paypal-client-id" name="paypal-client-id" value="" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="paypal-secret" class="block text-sm font-medium text-gray-700">Secret</label>
+                                        <input type="password" id="paypal-secret" name="paypal-secret" value="" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="text-sm font-medium text-gray-900">Sandbox Mode</h4>
+                                            <p class="text-sm text-gray-500">Use PayPal sandbox environment</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Currency Settings</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="default-currency" class="block text-sm font-medium text-gray-700">Default Currency</label>
+                                <select id="default-currency" name="default-currency" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    <option value="USD" selected>US Dollar (USD)</option>
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="GBP">British Pound (GBP)</option>
+                                    <option value="CAD">Canadian Dollar (CAD)</option>
+                                    <option value="AUD">Australian Dollar (AUD)</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Allow Multiple Currencies</h4>
+                                    <p class="text-sm text-gray-500">Let users pay in their local currency</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Settings -->
+            <div id="security" class="tab-content hidden">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Authentication</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Two-Factor Authentication</h4>
+                                    <p class="text-sm text-gray-500">Require 2FA for admin accounts</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">CAPTCHA Protection</h4>
+                                    <p class="text-sm text-gray-500">Enable CAPTCHA on login and registration forms</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <label for="max-login-attempts" class="block text-sm font-medium text-gray-700">Maximum Login Attempts</label>
+                                <input type="number" id="max-login-attempts" name="max-login-attempts" value="5" min="1" max="10" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="lockout-duration" class="block text-sm font-medium text-gray-700">Account Lockout Duration (minutes)</label>
+                                <input type="number" id="lockout-duration" name="lockout-duration" value="30" min="5" max="1440" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Session Management</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="session-timeout" class="block text-sm font-medium text-gray-700">Session Timeout (minutes)</label>
+                                <input type="number" id="session-timeout" name="session-timeout" value="30" min="5" max="1440" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Remember Me Functionality</h4>
+                                    <p class="text-sm text-gray-500">Allow users to stay logged in</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <label for="remember-me-duration" class="block text-sm font-medium text-gray-700">Remember Me Duration (days)</label>
+                                <input type="number" id="remember-me-duration" name="remember-me-duration" value="30" min="1" max="365" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Security Headers</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Content Security Policy (CSP)</h4>
+                                    <p class="text-sm text-gray-500">Enable CSP headers</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">X-XSS-Protection</h4>
+                                    <p class="text-sm text-gray-500">Enable XSS protection headers</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">X-Frame-Options</h4>
+                                    <p class="text-sm text-gray-500">Prevent site from being embedded in iframes</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrations Settings -->
+            <div id="integrations" class="tab-content hidden">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Social Media</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-md border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                            <i class="ri-facebook-fill text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-gray-900">Facebook</h4>
+                                            <p class="text-xs text-gray-500">Share cards on Facebook</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="mt-4 space-y-3">
+                                    <div>
+                                        <label for="facebook-app-id" class="block text-sm font-medium text-gray-700">App ID</label>
+                                        <input type="text" id="facebook-app-id" name="facebook-app-id" value="123456789012345" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="facebook-app-secret" class="block text-sm font-medium text-gray-700">App Secret</label>
+                                        <input type="password" id="facebook-app-secret" name="facebook-app-secret" value="1234567890abcdef" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-md border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                            <i class="ri-twitter-fill text-blue-400 text-xl"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-gray-900">Twitter</h4>
+                                            <p class="text-xs text-gray-500">Share cards on Twitter</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="mt-4 space-y-3">
+                                    <div>
+                                        <label for="twitter-api-key" class="block text-sm font-medium text-gray-700">API Key</label>
+                                        <input type="text" id="twitter-api-key" name="twitter-api-key" value="abcdefghijklmnopqrst" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="twitter-api-secret" class="block text-sm font-medium text-gray-700">API Secret</label>
+                                        <input type="password" id="twitter-api-secret" name="twitter-api-secret" value="abcdefghijklmnopqrstuvwxyz123456" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Analytics</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-md border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                            <i class="ri-google-line text-red-500 text-xl"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-gray-900">Google Analytics</h4>
+                                            <p class="text-xs text-gray-500">Track website traffic</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="mt-4">
+                                    <label for="ga-tracking-id" class="block text-sm font-medium text-gray-700">Tracking ID</label>
+                                    <input type="text" id="ga-tracking-id" name="ga-tracking-id" value="UA-12345678-1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Storage</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-md border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                            <i class="ri-amazon-line text-orange-500 text-xl"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-gray-900">Amazon S3</h4>
+                                            <p class="text-xs text-gray-500">Store card images and assets</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="mt-4 space-y-3">
+                                    <div>
+                                        <label for="s3-access-key" class="block text-sm font-medium text-gray-700">Access Key</label>
+                                        <input type="text" id="s3-access-key" name="s3-access-key" value="AKIAIOSFODNN7EXAMPLE" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="s3-secret-key" class="block text-sm font-medium text-gray-700">Secret Key</label>
+                                        <input type="password" id="s3-secret-key" name="s3-secret-key" value="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="s3-bucket" class="block text-sm font-medium text-gray-700">Bucket Name</label>
+                                        <input type="text" id="s3-bucket" name="s3-bucket" value="egreetingcards-assets" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="s3-region" class="block text-sm font-medium text-gray-700">Region</label>
+                                        <input type="text" id="s3-region" name="s3-region" value="us-east-1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appearance Settings -->
+            <div id="appearance" class="tab-content hidden">
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Theme</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Color Scheme</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="color-default" name="color-scheme" value="default" class="h-4 w-4 text-primary focus:ring-primary border-gray-300" checked>
+                                        <label for="color-default" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Default (Indigo)
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="color-blue" name="color-scheme" value="blue" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300">
+                                        <label for="color-blue" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Blue
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="color-green" name="color-scheme" value="green" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300">
+                                        <label for="color-green" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Green
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="color-purple" name="color-scheme" value="purple" class="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                                        <label for="color-purple" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Purple
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="color-pink" name="color-scheme" value="pink" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300">
+                                        <label for="color-pink" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Pink
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="color-custom" name="color-scheme" value="custom" class="h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300">
+                                        <label for="color-custom" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Custom
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="primary-color" class="block text-sm font-medium text-gray-700">Primary Color</label>
+                                <div class="mt-1 flex items-center">
+                                    <input type="color" id="primary-color" name="primary-color" value="#4f46e5" class="h-8 w-8 rounded-md border border-gray-300 cursor-pointer">
+                                    <input type="text" value="#4f46e5" class="ml-2 block w-24 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="secondary-color" class="block text-sm font-medium text-gray-700">Secondary Color</label>
+                                <div class="mt-1 flex items-center">
+                                    <input type="color" id="secondary-color" name="secondary-color" value="#10b981" class="h-8 w-8 rounded-md border border-gray-300 cursor-pointer">
+                                    <input type="text" value="#10b981" class="ml-2 block w-24 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Mode</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="mode-light" name="mode" value="light" class="h-4 w-4 text-primary focus:ring-primary border-gray-300" checked>
+                                        <label for="mode-light" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Light
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="mode-dark" name="mode" value="dark" class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                                        <label for="mode-dark" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Dark
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="mode-auto" name="mode" value="auto" class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                                        <label for="mode-auto" class="ml-3 block text-sm font-medium text-gray-700">
+                                            Auto (System)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Logo</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Site Logo</label>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center overflow-hidden">
+                                        <span class="text-2xl font-['Pacifico'] text-gray-500">logo</span>
+                                    </div>
+                                    <div class="ml-5">
+                                        <button type="button" class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                            Change
+                                        </button>
+                                        <p class="mt-1 text-xs text-gray-500">Recommended size: 200x50 pixels</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Favicon</label>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-100 rounded-md flex items-center justify-center overflow-hidden">
+                                        <span class="text-xs font-['Pacifico'] text-gray-500">E</span>
+                                    </div>
+                                    <div class="ml-5">
+                                        <button type="button" class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                            Change
+                                        </button>
+                                        <p class="mt-1 text-xs text-gray-500">Recommended size: 32x32 pixels</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Layout</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="sidebar-position" class="block text-sm font-medium text-gray-700">Sidebar Position</label>
+                                <select id="sidebar-position" name="sidebar-position" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+                                    <option value="left" selected>Left</option>
+                                    <option value="right">Right</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Compact Sidebar</h4>
+                                    <p class="text-sm text-gray-500">Use a more compact sidebar layout</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900">Sticky Header</h4>
+                                    <p class="text-sm text-gray-500">Keep the header visible when scrolling</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Cancel
+                        </button>
+                        <button type="button" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active', 'border-primary', 'text-primary'));
+                    tabButtons.forEach(btn => btn.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300'));
+                    tabContents.forEach(content => content.classList.add('hidden'));
+
+                    // Add active class to clicked button
+                    button.classList.add('active', 'border-primary', 'text-primary');
+                    button.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+}
