@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7vz5PGYiRtEsvOFGCfa6w8f23vfJ32JELOAA3uzzgMI=",
+  "Hash": "mpq+XyYD0Xp+o8IyaRjBfyoJBdZSZV8EKfROqAG7sVU=",
   "Source": "frontend",
   "BasePath": "_content/frontend",
   "Mode": "Default",
@@ -1364,7 +1364,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 03 May 2025 06:24:46 GMT"
+          "Value": "Mon, 05 May 2025 04:40:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1409,7 +1409,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 03 May 2025 06:24:46 GMT"
+          "Value": "Mon, 05 May 2025 04:40:54 GMT"
         },
         {
           "Name": "Cache-Control",

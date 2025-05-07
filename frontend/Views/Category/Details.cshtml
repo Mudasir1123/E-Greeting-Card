@@ -1,0 +1,76 @@
+﻿
+@*     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860 *@
+
+@* @{ *@
+@* } *@
+@* @model frontend.Models.Category *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Category Details - E-Greeting"; *@
+@* } *@
+
+@* <div class="container mx-auto px-4 py-8"> *@
+@*     <div class="flex items-center mb-6"> *@
+@*         <a asp-action="Index" class="text-primary hover:text-primary/80 mr-2"> *@
+@*             <div class="w-5 h-5 flex items-center justify-center"> *@
+@*                 <i class="ri-arrow-left-line"></i> *@
+@*             </div> *@
+@*         </a> *@
+@*         <h1 class="text-3xl font-bold text-gray-900">Category Details</h1> *@
+@*     </div> *@
+
+@*     <div class="bg-white rounded-lg shadow-sm p-6"> *@
+@*         <div class="mb-6"> *@
+@*             <h2 class="text-xl font-semibold text-gray-900 mb-4">@Model.Name</h2> *@
+
+@*             <div class="flex space-x-3 mb-6"> *@
+@*                 <a asp-action="Edit" asp-route-id="@Model.CategoryId" class="!rounded-button bg-primary text-white px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors flex items-center"> *@
+@*                     <div class="w-4 h-4 mr-2 flex items-center justify-center"> *@
+@*                         <i class="ri-edit-line"></i> *@
+@*                     </div> *@
+@*                     <span>Edit</span> *@
+@*                 </a> *@
+@*                 <a asp-action="Delete" asp-route-id="@Model.CategoryId" class="!rounded-button bg-white border border-red-500 text-red-500 px-4 py-2 text-sm font-medium hover:bg-red-50 transition-colors flex items-center"> *@
+@*                     <div class="w-4 h-4 mr-2 flex items-center justify-center"> *@
+@*                         <i class="ri-delete-bin-line"></i> *@
+@*                     </div> *@
+@*                     <span>Delete</span> *@
+@*                 </a> *@
+@*             </div> *@
+
+@*             <h3 class="text-lg font-medium text-gray-900 mb-3">Templates in this category</h3> *@
+
+@*             @if (Model.Templates != null && Model.Templates.Any()) *@
+@*             { *@
+@*                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"> *@
+@*                     @foreach (var template in Model.Templates) *@
+@*                     { *@
+@*                         <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"> *@
+@*                             <div class="relative aspect-[4/3] overflow-hidden"> *@
+@*                                 <img src="@template.ImageUrl" alt="@template.Name" class="w-full h-full object-cover object-top"> *@
+@*                             </div> *@
+@*                             <div class="p-4"> *@
+@*                                 <div class="flex justify-between items-start mb-2"> *@
+@*                                     <h3 class="font-medium text-gray-900">@template.Name</h3> *@
+@*                                     <span class="text-sm font-medium text-primary">$@template.Price</span> *@
+@*                                 </div> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                     } *@
+@*                 </div> *@
+@*             } *@
+@*             else *@
+@*             { *@
+@*                 <div class="bg-gray-50 rounded-lg p-6 text-center"> *@
+@*                     <div class="w-16 h-16 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-4"> *@
+@*                         <div class="w-8 h-8 flex items-center justify-center text-gray-400"> *@
+@*                             <i class="ri-file-list-3-line"></i> *@
+@*                         </div> *@
+@*                     </div> *@
+@*                     <h3 class="text-lg font-medium text-gray-900 mb-2">No templates found</h3> *@
+@*                     <p class="text-gray-600">This category doesn't have any templates yet.</p> *@
+@*                 </div> *@
+@*             } *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@

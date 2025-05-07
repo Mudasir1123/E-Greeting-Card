@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model frontend.Models.Category
+
+@{
+    ViewData["Title"] = "Create Category - E-Greeting";
+}
+
+<div class="container mx-auto px-4 py-8">
+    <div class="flex items-center mb-6">
+        <a asp-action="Index" class="text-primary hover:text-primary/80 mr-2">
+            <div class="w-5 h-5 flex items-center justify-center">
+                <i class="ri-arrow-left-line"></i>
+            </div>
+        </a>
+        <h1 class="text-3xl font-bold text-gray-900">Create Category</h1>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-sm p-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+            <div class="mb-6">
+                <label asp-for="Name" class="block text-sm font-medium text-gray-700 mb-2">Category Name</label>
+                <input asp-for="Name" class="w-full px-4 py-2 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+                <span asp-validation-for="Name" class="text-sm text-red-500"></span>
+            </div>
+
+            <div class="flex justify-end space-x-3">
+                <a asp-action="Index" class="!rounded-button bg-white border border-gray-300 text-gray-700 px-4 py-2 text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</a>
+                <button type="submit" class="!rounded-button bg-primary text-white px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
