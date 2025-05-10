@@ -4,6 +4,7 @@ namespace frontend.Models
 {
     public class Category
     {
+        [Key]
         public int CategoryId { get; set; }
 
         [Required]
