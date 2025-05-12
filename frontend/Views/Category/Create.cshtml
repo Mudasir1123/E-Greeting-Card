@@ -1,8 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
 @model frontend.Models.Category
 
 @{
@@ -20,12 +17,12 @@
     </div>
 
     <div class="bg-white rounded-lg shadow-sm p-6">
-        <form asp-action="Create" method="post">
+        <form asp-action="Create" method="post" asp-controller="Category">
             <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
 
             <div class="mb-6">
                 <label asp-for="Name" class="block text-sm font-medium text-gray-700 mb-2">Category Name</label>
-                <input asp-for="Name" class="w-full px-4 py-2 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Enter Your Category"/>
+                <input asp-for="Name" class="w-full px-4 py-2 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Enter Your Category" pattern="[a-zA-Z]{0,15}" required/>
                 <span asp-validation-for="Name" class="text-sm text-red-500"></span>
             </div>
 

@@ -1,8 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
 @model IEnumerable<frontend.Models.Category>
 
 @{
@@ -71,12 +68,12 @@
                                         <div class="w-5 h-5 flex items-center justify-center">
                                             <i class="ri-edit-line"></i>
                                         </div>
-                                    </a>
-                                    <a asp-action="Details" asp-route-id="@item.CategoryId" class="text-gray-600 hover:text-gray-900" title="Details">
-                                        <div class="w-5 h-5 flex items-center justify-center">
-                                            <i class="ri-information-line"></i>
-                                        </div>
-                                    </a>
+                                    </a> |
+                                    @* <a asp-action="#" class="text-gray-600 hover:text-gray-900" title="Details"> *@
+                                    @*     <div class="w-5 h-5 flex items-center justify-center"> *@
+                                    @*         <i class="ri-information-line"></i> *@
+                                    @*     </div> *@
+                                    @* </a> *@
                                     <a asp-action="Delete" asp-route-id="@item.CategoryId" class="text-red-600 hover:text-red-800" title="Delete">
                                         <div class="w-5 h-5 flex items-center justify-center">
                                             <i class="ri-delete-bin-line"></i>

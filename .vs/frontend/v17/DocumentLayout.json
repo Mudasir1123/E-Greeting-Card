@@ -3,64 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\M Mudasir\\Pictures\\frontend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\offer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\offer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\offer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\offer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\feedback\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\feedback\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\offer\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\offer\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\controllers\\offercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\controllers\\offercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\offer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\offer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\offer\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\offer\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\feedback\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\feedback\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\feedback\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\feedback\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\feedback\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\feedback\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\feedback\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\feedback\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|c:\\users\\m mudasir\\pictures\\frontend\\frontend\\views\\admin\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7618E295-910E-4014-B30B-E6E419252ED7}|frontend\\frontend.csproj|solutionrelative:frontend\\views\\admin\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -69,193 +33,96 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "DockedHeight": 213,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "frontend\\Models\\Category.cs",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Models\\Category.cs",
-              "RelativeToolTip": "frontend\\Models\\Category.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T05:36:06.884Z",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Category\\Edit.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Category\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Category\\Edit.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Category\\Edit.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-12T06:15:56.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Category\\Create.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Category\\Create.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Category\\Create.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Category\\Create.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAQwB0AAAASAAAAAAAAAA==",
+              "Title": "edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\category\\edit.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\category\\edit.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\category\\edit.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\category\\edit.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAQwBoAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-10T05:29:41.098Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "frontend\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "frontend\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T05:07:05.164Z",
+              "WhenOpened": "2025-05-12T06:15:35.283Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "TransactionController.cs",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\TransactionController.cs",
-              "RelativeDocumentMoniker": "frontend\\Controllers\\TransactionController.cs",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\TransactionController.cs",
-              "RelativeToolTip": "frontend\\Controllers\\TransactionController.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAkwKMAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T05:01:04.292Z"
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\category\\Index.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\category\\Index.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\category\\Index.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\category\\Index.cshtml",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAEwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-12T06:08:39.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "create.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\category\\create.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Admin\\category\\create.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Admin\\category\\create.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Admin\\category\\create.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAACpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-12T05:53:53.339Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Index.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Offer\\Index.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Index.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Offer\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "frontend\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAE8AAAAAAAAAAAApwFwAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:51:08.411Z",
+              "WhenOpened": "2025-05-12T05:09:29.729Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Edit.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Offer\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Edit.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Offer\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:49:54.573Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Details.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Offer\\Details.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Details.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Offer\\Details.cshtml",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAFkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:46:08.728Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Delete.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Offer\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Delete.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Offer\\Delete.cshtml",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:45:44.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Create.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Offer\\Create.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Offer\\Create.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Offer\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:45:12.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "OfferController.cs",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\OfferController.cs",
-              "RelativeDocumentMoniker": "frontend\\Controllers\\OfferController.cs",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\OfferController.cs",
-              "RelativeToolTip": "frontend\\Controllers\\OfferController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwDcAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "frontend\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "frontend\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAtwDUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T04:38:07.732Z"
-            },
+              "WhenOpened": "2025-05-12T04:22:27.319Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 19,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Create.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Feedback\\Create.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Create.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Feedback\\Create.cshtml",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:33:38.018Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Index.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Feedback\\Index.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Index.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Feedback\\Index.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAswF4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:24:31.853Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Edit.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Feedback\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Edit.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Feedback\\Edit.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAswDcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:23:46.555Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Details.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Feedback\\Details.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Details.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Feedback\\Details.cshtml",
-              "ViewState": "AgIAACkAAAAAAAAAAAAswDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:22:02.914Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Delete.cshtml",
-              "RelativeDocumentMoniker": "frontend\\Views\\Feedback\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\Views\\Feedback\\Delete.cshtml",
-              "RelativeToolTip": "frontend\\Views\\Feedback\\Delete.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAswEAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T04:19:51.719Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         }

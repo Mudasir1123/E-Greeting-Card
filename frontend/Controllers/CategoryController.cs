@@ -16,27 +16,21 @@ namespace frontend.Controllers
         public IActionResult Index()
         {
             var categories = _context.Categories.ToList();
-            return View(categories);
+            return View("~/Views/Admin/category/Index.cshtml", categories);
         }
 
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/Admin/category/create.cshtml");
         }
 
         [HttpPost]
         public IActionResult Create(Category category)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Categories.Add(category);
+
+                _context.Add(category);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(category);
-            }
         }
 
         public IActionResult Edit(int id)
@@ -48,35 +42,23 @@ namespace frontend.Controllers
                 return NotFound();
             }
 
-            return View(category);
+            return View("~/Views/Admin/category/edit.cshtml",category);
         }
 
         [HttpPost]
         public IActionResult Edit(Category category)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Categories.Update(category);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            //}
 
-            return View(category);
+            
         }
 
         public IActionResult Delete(int id)
-        {
-            var category = _context.Categories.Find(id);
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
         {
             var category = _context.Categories.Find(id);
             if (category == null)
@@ -88,6 +70,7 @@ namespace frontend.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+      
 
         public IActionResult Details(int id)
         {
