@@ -1,7 +1,7 @@
-﻿@model IEnumerable<frontend.Models.Category>
+﻿@model IEnumerable<frontend.Models.Subscription>
 
 @{
-    ViewData["Title"] = "Categories Management | E-Greeting Card Platform";
+    ViewData["Title"] = "Subscriptions Management | E-Greeting Card Platform";
     Layout = "_AdminLayout";
 }
 
@@ -13,15 +13,15 @@
             <div class="w-4 h-4 flex items-center justify-center mx-1">
                 <i class="ri-arrow-right-s-line"></i>
             </div>
-            <span class="text-gray-700">Categories</span>
+            <span class="text-gray-700">Subscriptions</span>
         </div>
-        <h1 class="text-2xl font-bold text-gray-900">Categories</h1>
+        <h1 class="text-2xl font-bold text-gray-900">Subscriptions</h1>
     </div>
     <a asp-action="Create" class="mt-3 sm:mt-0 px-4 py-2 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 whitespace-nowrap flex items-center">
         <div class="w-4 h-4 flex items-center justify-center mr-2">
             <i class="ri-add-line"></i>
         </div>
-        Add New Category
+        Add New Subscription
     </a>
 </div>
 
@@ -42,14 +42,17 @@
     </div>
 }
 
-<!-- Categories Table -->
+<!-- Subscriptions Table -->
 <div class="bg-white rounded shadow overflow-hidden mb-6">
     <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">@Html.DisplayNameFor(model => model.First().Name)</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Template Count</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email List</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End Date</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Is Active</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Payment Verified</th>
                     <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
@@ -57,16 +60,27 @@
                 @foreach (var item in Model)
                 {
                     <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">@item.Name</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">@(item.Templates?.Count ?? 0) templates</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">@item.EmailList</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">@item.StartDate.ToShortDateString()</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">@item.EndDate.ToShortDateString()</td>
+                        <td class="px-6 py-4 text-center text-sm">
+                            <span class="px-2 py-1 rounded-full text-xs font-semibold @(item.IsActive ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700")">
+                                @(item.IsActive ? "Active" : "Inactive")
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 text-center text-sm">
+                            <span class="px-2 py-1 rounded-full text-xs font-semibold @(item.PaymentVerified ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700")">
+                                @(item.PaymentVerified ? "Verified" : "Pending")
+                            </span>
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex justify-end space-x-2">
-                                <a asp-action="Edit" asp-route-id="@item.CategoryId" class="text-primary hover:text-primary/80" title="Edit">
+                                <a asp-action="Edit" asp-route-id="@item.SubscriptionId" class="text-primary hover:text-primary/80" title="Edit">
                                     <div class="w-5 h-5 flex items-center justify-center">
                                         <i class="ri-edit-line"></i>
                                     </div>
                                 </a>
-                                <button data-id="@item.CategoryId" class="text-red-600 hover:text-red-800 open-delete-modal" title="Delete">
+                                <button data-id="@item.SubscriptionId" class="text-red-600 hover:text-red-800 open-delete-modal" title="Delete">
                                     <div class="w-5 h-5 flex items-center justify-center">
                                         <i class="ri-delete-bin-line"></i>
                                     </div>
@@ -84,7 +98,7 @@
 <div id="delete-modal" class="fixed inset-0 z-50 hidden bg-black/50 flex items-center justify-center">
     <div class="bg-white rounded-lg p-6 w-full max-w-sm shadow-lg">
         <h2 class="text-xl font-bold text-gray-900 mb-4">Confirm Delete</h2>
-        <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this category? This action cannot be undone.</p>
+        <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this subscription? This action cannot be undone.</p>
         <form id="delete-form" method="post">
             <input type="hidden" name="id" id="delete-id" />
             <div class="flex justify-end space-x-2">
@@ -105,9 +119,9 @@
 
             document.querySelectorAll('.open-delete-modal').forEach(button => {
                 button.addEventListener('click', function () {
-                    const categoryId = this.getAttribute('data-id');
-                    deleteIdInput.value = categoryId;
-                    deleteForm.action = `/Admin/Delete/${categoryId}`;
+                    const subscriptionId = this.getAttribute('data-id');
+                    deleteIdInput.value = subscriptionId;
+                    deleteForm.action = `/Subscription/Delete/${subscriptionId}`;
                     deleteModal.classList.remove('hidden');
                 });
             });

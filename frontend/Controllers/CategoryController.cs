@@ -27,36 +27,39 @@ namespace frontend.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
-
-                _context.Add(category);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+            category.CreatedAt = DateTime.Now;
+            category.UpdatedAt = DateTime.Now;
+            _context.Add(category);
+             _context.SaveChanges();
+             return RedirectToAction("Index");
         }
 
+        // GET: /Subscription/Edit/5
         public IActionResult Edit(int id)
         {
-            var category = _context.Categories.Find(id);
+            var subscription = _context.Subscriptions.Find(id);
 
-            if (category == null)
+            if (subscription == null)
             {
                 return NotFound();
             }
 
-            return View("~/Views/Admin/category/edit.cshtml",category);
+            ViewBag.Offers = _context.Offers.ToList(); // Optional: for dropdown
+            return View("~/Views/Admin/Subscription/Edit.cshtml", subscription);
         }
 
+        // POST: /Subscription/Edit
         [HttpPost]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Subscription subscription)
         {
-            //if (ModelState.IsValid)
-            //{
-                _context.Categories.Update(category);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            //}
+            // Direct update like Category example
+            subscription.UpdatedAt = DateTime.Now;
+            _context.Subscriptions.Update(subscription);
+            _context.SaveChanges();
 
-            
+            return RedirectToAction("Index");
         }
+
 
         public IActionResult Delete(int id)
         {

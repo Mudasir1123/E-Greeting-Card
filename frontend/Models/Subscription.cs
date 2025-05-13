@@ -21,6 +21,8 @@ namespace frontend.Models
         // Foreign key to Offer (optional)
         public int? OfferId { get; set; }
         public Offer Offer { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 
 }
