@@ -30,35 +30,34 @@ namespace frontend.Controllers
             category.CreatedAt = DateTime.Now;
             category.UpdatedAt = DateTime.Now;
             _context.Add(category);
-             _context.SaveChanges();
+            _context.SaveChanges();
              return RedirectToAction("Index");
         }
 
         // GET: /Subscription/Edit/5
         public IActionResult Edit(int id)
         {
-            var subscription = _context.Subscriptions.Find(id);
+            var category = _context.Categories.Find(id);
 
-            if (subscription == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            ViewBag.Offers = _context.Offers.ToList(); // Optional: for dropdown
-            return View("~/Views/Admin/Subscription/Edit.cshtml", subscription);
+            return View("~/Views/Admin/Category/Edit.cshtml", category);
         }
 
-        // POST: /Subscription/Edit
+        // Handle Edit POST without validation
         [HttpPost]
-        public IActionResult Edit(Subscription subscription)
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category category)
         {
-            // Direct update like Category example
-            subscription.UpdatedAt = DateTime.Now;
-            _context.Subscriptions.Update(subscription);
+            category.UpdatedAt = DateTime.Now;
+            _context.Categories.Update(category);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
+
 
 
         public IActionResult Delete(int id)

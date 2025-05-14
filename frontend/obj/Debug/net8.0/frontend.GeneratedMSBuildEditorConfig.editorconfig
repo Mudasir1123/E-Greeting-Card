@@ -56,6 +56,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Admin/ECardTemplate/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRUNhcmRUZW1wbGF0ZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Admin/ECardTemplate/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRUNhcmRUZW1wbGF0ZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Admin/ECardTemplate/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRUNhcmRUZW1wbGF0ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Admin/Settings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2V0dGluZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -116,18 +128,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/ECardTemplate/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRUNhcmRUZW1wbGF0ZVxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/ECardTemplate/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRUNhcmRUZW1wbGF0ZVxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/ECardTemplate/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRUNhcmRUZW1wbGF0ZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Feedback/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -146,6 +146,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Feedback/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Home/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/M Mudasir/Pictures/frontend/frontend/Views/Home/Index.cshtml]

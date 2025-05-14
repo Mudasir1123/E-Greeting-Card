@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-.
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Admin" asp-action="CardManagement" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "CardManagement" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
+                        <a asp-controller="ECardTemplate" asp-action="Index" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-md @(ViewContext.RouteData.Values["Action"].ToString() == "Categories" ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white")">
                             <div class="w-5 h-5 flex items-center justify-center mr-3">
                                 <i class="ri-mail-line"></i>
                             </div>

@@ -1,0 +1,82 @@
+﻿@model frontend.Models.ECardTemplate
+@{
+    ViewData["Title"] = "Edit E-Card Template | E-Greeting Card Platform";
+    Layout = "_AdminLayout";
+    var categories = ViewBag.Categories as List<frontend.Models.Category>;
+}
+
+<!-- Breadcrumbs & Page Title -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+    <div>
+        <div class="flex items-center text-sm text-gray-500 mb-2">
+            <a asp-controller="Admin" asp-action="Dashboard" class="hover:text-primary">Dashboard</a>
+            <div class="w-4 h-4 flex items-center justify-center mx-1">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+            <span class="text-gray-700">Templates</span>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900">Edit E-Card Template</h1>
+    </div>
+    <a asp-action="Index" class="mt-3 sm:mt-0 px-4 py-2 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 whitespace-nowrap flex items-center">
+        <i class="ri-arrow-left-line mr-2"></i>
+        Back
+    </a>
+</div>
+
+<!-- Form -->
+<div class="container-fluid mt-5">
+    <form asp-action="Edit" asp-controller="ECardTemplate" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="TemplateId" />
+        <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+        <div class="space-y-4">
+            <!-- Title -->
+            <div>
+                <label asp-for="Title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <input asp-for="Title" class="w-full px-3 py-2 border border-gray-300 rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                <span asp-validation-for="Title" class="text-sm text-red-500"></span>
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label asp-for="Description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea asp-for="Description" class="w-full px-3 py-2 border border-gray-300 rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"></textarea>
+                <span asp-validation-for="Description" class="text-sm text-red-500"></span>
+            </div>
+
+            <!-- Image Preview + Upload -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Current Image</label>
+                <img src="~/uploads/@Model.ImageUrl" class="w-32 h-32 rounded mb-2" />
+                <label class="block text-sm font-medium text-gray-700 mb-1">Change Image</label>
+                <input type="file" name="imageFile" class="w-full px-3 py-2 border border-gray-300 rounded-button text-sm" />
+            </div>
+
+            <!-- Category -->
+            <div>
+                <label asp-for="CategoryId" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <select asp-for="CategoryId" class="w-full px-3 py-2 border border-gray-300 rounded-button text-sm">
+                    <option value="">-- Select Category --</option>
+                    @foreach (var cat in categories)
+                    {
+                        <option value="@cat.CategoryId" selected="@(Model.CategoryId == cat.CategoryId)">
+                            @cat.Name
+                        </option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-sm text-red-500"></span>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-6 flex justify-end space-x-3">
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-button text-sm font-medium hover:bg-primary/90 whitespace-nowrap">Update Template</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

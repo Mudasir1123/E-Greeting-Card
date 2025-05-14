@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<frontend.Models.ECardTemplate>
+@{
     ViewData["Title"] = "My Cards - E-Greeting";
 }
 
@@ -10,12 +11,12 @@
             <h1 class="text-3xl font-bold text-gray-900 mb-2">My Cards</h1>
             <p class="text-gray-600">Manage all your created greeting cards</p>
         </div>
-        <a href="#" class="!rounded-button bg-primary text-white px-5 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center mt-4 md:mt-0">
-            <div class="w-5 h-5 mr-2 flex items-center justify-center">
-                <i class="ri-add-line"></i>
-            </div>
-            <span>Create New Card</span>
-        </a>
+        @* <a href="#" class="!rounded-button bg-primary text-white px-5 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center mt-4 md:mt-0"> *@
+        @*     <div class="w-5 h-5 mr-2 flex items-center justify-center"> *@
+        @*         <i class="ri-add-line"></i> *@
+        @*     </div> *@
+        @*     <span>Create New Card</span> *@
+        @* </a> *@
     </div>
 
     <!-- Filters and Search -->
@@ -63,252 +64,55 @@
         </div>
     </div>
 
-    <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-lg shadow-sm overflow-hidden card">
-            <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="https://readdy.ai/api/search-image?query=A%2520beautiful%2520birthday%2520greeting%2520card%2520with%2520elegant%2520design%2520featuring%2520colorful%2520balloons%2520and%2520confetti%2520on%2520a%2520soft%2520pastel%2520background.%2520The%2520card%2520has%2520modern%2520typography%2520with%2520Happy%2520Birthday%2520text.%2520The%2520style%2520is%2520clean%2520and%2520professional%2520with%2520attention%2520to%2520detail%2520and%2520balanced%2520composition.%2520High-quality%2520digital%2520illustration%2520with%2520soft%2520shadows%2520and%2520highlights.&width=600&height=450&seq=11&orientation=landscape" alt="Birthday Card" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/5"></div>
-                <div class="absolute top-3 right-3 card-actions flex space-x-1">
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors">
-                        <i class="ri-delete-bin-line"></i>
-                    </button>
+    <!-- Card Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @foreach (var item in Model)
+        {
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="~/uploads/@item.ImageUrl" alt="@item.Title" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-medium text-gray-900">@item.Title</h3>
+                        @* <span class="text-sm font-medium text-primary">$2.99</span> <!-- You can replace this with actual pricing if needed --> *@
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <div class="w-4 h-4 flex items-center justify-center mr-1">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span>4.8 (124 reviews)</span> <!-- Replace with actual dynamic data if needed -->
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">@item.Category?.Name</span>
+                    </div>
+                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.TemplateId" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap" title="View & Send">
+                        Send Now
+                    </a>
                 </div>
             </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-medium text-gray-900">Sarah's Birthday</h3>
-                    <span class="status-badge status-sent">Sent</span>
-                </div>
-                <p class="text-sm text-gray-500 mb-2">To: Sarah Johnson</p>
-                <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                        <i class="ri-calendar-line"></i>
-                    </div>
-                    <span>Sent on April 15, 2025</span>
-                </div>
-                <a href="#" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap flex items-center justify-center">
-                    <span>View Card</span>
-                    <div class="w-4 h-4 ml-1 flex items-center justify-center">
-                        <i class="ri-eye-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bg-white rounded-lg shadow-sm overflow-hidden card">
-            <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="https://readdy.ai/api/search-image?query=A%2520professional%2520thank%2520you%2520greeting%2520card%2520with%2520elegant%2520design%2520featuring%2520minimalist%2520floral%2520elements%2520and%2520gold%2520accents%2520on%2520a%2520soft%2520cream%2520background.%2520The%2520card%2520has%2520modern%2520typography%2520with%2520Thank%2520You%2520text.%2520The%2520style%2520is%2520clean%2520and%2520sophisticated%2520with%2520attention%2520to%2520detail%2520and%2520balanced%2520composition.%2520High-quality%2520digital%2520illustration%2520with%2520soft%2520shadows.&width=600&height=450&seq=12&orientation=landscape" alt="Thank You Card" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/5"></div>
-                <div class="absolute top-3 right-3 card-actions flex space-x-1">
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors">
-                        <i class="ri-delete-bin-line"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-medium text-gray-900">Client Thank You</h3>
-                    <span class="status-badge status-scheduled">Scheduled</span>
-                </div>
-                <p class="text-sm text-gray-500 mb-2">To: Robert Chen</p>
-                <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                        <i class="ri-calendar-line"></i>
-                    </div>
-                    <span>Scheduled for May 3, 2025</span>
-                </div>
-                <a href="#" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap flex items-center justify-center">
-                    <span>View Card</span>
-                    <div class="w-4 h-4 ml-1 flex items-center justify-center">
-                        <i class="ri-eye-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white rounded-lg shadow-sm overflow-hidden card">
-            <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="https://readdy.ai/api/search-image?query=A%2520modern%2520wedding%2520congratulations%2520greeting%2520card%2520with%2520elegant%2520design%2520featuring%2520minimalist%2520floral%2520elements%2520and%2520two%2520wedding%2520rings%2520on%2520a%2520soft%2520pastel%2520background.%2520The%2520card%2520has%2520modern%2520typography%2520with%2520Congratulations%2520text.%2520The%2520style%2520is%2520clean%2520and%2520romantic%2520with%2520attention%2520to%2520detail%2520and%2520balanced%2520composition.%2520High-quality%2520digital%2520illustration%2520with%2520soft%2520shadows.&width=600&height=450&seq=13&orientation=landscape" alt="Wedding Card" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/5"></div>
-                <div class="absolute top-3 right-3 card-actions flex space-x-1">
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors">
-                        <i class="ri-delete-bin-line"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-medium text-gray-900">Wedding Wishes</h3>
-                    <span class="status-badge status-draft">Draft</span>
-                </div>
-                <p class="text-sm text-gray-500 mb-2">To: Emily & Michael</p>
-                <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                        <i class="ri-edit-line"></i>
-                    </div>
-                    <span>Last edited on April 20, 2025</span>
-                </div>
-                <a href="#" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap flex items-center justify-center">
-                    <span>Continue Editing</span>
-                    <div class="w-4 h-4 ml-1 flex items-center justify-center">
-                        <i class="ri-edit-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-white rounded-lg shadow-sm overflow-hidden card">
-            <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="https://readdy.ai/api/search-image?query=A%2520modern%2520holiday%2520greeting%2520card%2520with%2520elegant%2520design%2520featuring%2520minimalist%2520snowflakes%2520and%2520festive%2520elements%2520on%2520a%2520soft%2520blue%2520background.%2520The%2520card%2520has%2520modern%2520typography%2520with%2520Happy%2520Holidays%2520text.%2520The%2520style%2520is%2520clean%2520and%2520winter-themed%2520with%2520attention%2520to%2520detail%2520and%2520balanced%2520composition.%2520High-quality%2520digital%2520illustration%2520with%2520soft%2520shadows.&width=600&height=450&seq=14&orientation=landscape" alt="Holiday Card" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/5"></div>
-                <div class="absolute top-3 right-3 card-actions flex space-x-1">
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors">
-                        <i class="ri-delete-bin-line"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-medium text-gray-900">Winter Holidays</h3>
-                    <span class="status-badge status-sent">Sent</span>
-                </div>
-                <p class="text-sm text-gray-500 mb-2">To: Team Members (12)</p>
-                <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                        <i class="ri-calendar-line"></i>
-                    </div>
-                    <span>Sent on December 20, 2024</span>
-                </div>
-                <a href="#" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap flex items-center justify-center">
-                    <span>View Card</span>
-                    <div class="w-4 h-4 ml-1 flex items-center justify-center">
-                        <i class="ri-eye-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="bg-white rounded-lg shadow-sm overflow-hidden card">
-            <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="https://readdy.ai/api/search-image?query=A%2520modern%2520baby%2520shower%2520greeting%2520card%2520with%2520elegant%2520design%2520featuring%2520minimalist%2520baby%2520elements%2520like%2520a%2520stroller%2520and%2520baby%2520clothes%2520on%2520a%2520soft%2520pastel%2520background.%2520The%2520card%2520has%2520modern%2520typography%2520with%2520Congratulations%2520text.%2520The%2520style%2520is%2520clean%2520and%2520sweet%2520with%2520attention%2520to%2520detail%2520and%2520balanced%2520composition.%2520High-quality%2520digital%2520illustration%2520with%2520soft%2520shadows.&width=600&height=450&seq=15&orientation=landscape" alt="Baby Shower Card" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/5"></div>
-                <div class="absolute top-3 right-3 card-actions flex space-x-1">
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors">
-                        <i class="ri-delete-bin-line"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-medium text-gray-900">Baby Shower</h3>
-                    <span class="status-badge status-scheduled">Scheduled</span>
-                </div>
-                <p class="text-sm text-gray-500 mb-2">To: Jessica Williams</p>
-                <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                        <i class="ri-calendar-line"></i>
-                    </div>
-                    <span>Scheduled for May 12, 2025</span>
-                </div>
-                <a href="#" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap flex items-center justify-center">
-                    <span>View Card</span>
-                    <div class="w-4 h-4 ml-1 flex items-center justify-center">
-                        <i class="ri-eye-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="bg-white rounded-lg shadow-sm overflow-hidden card">
-            <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="https://readdy.ai/api/search-image?query=A%2520modern%2520anniversary%2520greeting%2520card%2520with%2520elegant%2520design%2520featuring%2520minimalist%2520hearts%2520and%2520floral%2520elements%2520with%2520gold%2520accents.%2520The%2520card%2520has%2520modern%2520typography%2520with%2520Happy%2520Anniversary%2520text.%2520The%2520style%2520is%2520clean%2520and%2520romantic%2520with%2520attention%2520to%2520detail%2520and%2520balanced%2520composition.%2520High-quality%2520digital%2520illustration%2520with%2520soft%2520shadows.&width=600&height=450&seq=16&orientation=landscape" alt="Anniversary Card" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/5"></div>
-                <div class="absolute top-3 right-3 card-actions flex space-x-1">
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors">
-                        <i class="ri-delete-bin-line"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-medium text-gray-900">Anniversary Love</h3>
-                    <span class="status-badge status-draft">Draft</span>
-                </div>
-                <p class="text-sm text-gray-500 mb-2">To: David & Sophia</p>
-                <div class="flex items-center text-xs text-gray-500 mb-4">
-                    <div class="w-4 h-4 flex items-center justify-center mr-1">
-                        <i class="ri-edit-line"></i>
-                    </div>
-                    <span>Last edited on April 26, 2025</span>
-                </div>
-                <a href="#" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap flex items-center justify-center">
-                    <span>Continue Editing</span>
-                    <div class="w-4 h-4 ml-1 flex items-center justify-center">
-                        <i class="ri-edit-line"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
+        }
     </div>
-
-    <!-- Pagination -->
-    <div class="flex justify-between items-center mb-8">
-        <div class="text-sm text-gray-600">Showing 6 of 12 cards</div>
-        <div class="flex space-x-2">
-            <button class="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                <i class="ri-arrow-left-s-line"></i>
-            </button>
-            <button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors">1</button>
-            <button class="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors">2</button>
-            <button class="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors">
-                <i class="ri-arrow-right-s-line"></i>
-            </button>
-        </div>
-    </div>
-</main>
+@*     <!-- Pagination --> *@
+@*     <div class="flex justify-between items-center mb-8"> *@
+@*         <div class="text-sm text-gray-600">Showing 6 of 12 cards</div> *@
+@*         <div class="flex space-x-2"> *@
+@*             <button class="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled> *@
+@*                 <i class="ri-arrow-left-s-line"></i> *@
+@*             </button> *@
+@*             <button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors">1</button> *@
+@*             <button class="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors">2</button> *@
+@*             <button class="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors"> *@
+@*                 <i class="ri-arrow-right-s-line"></i> *@
+@*             </button> *@
+@*         </div> *@
+@*     </div> *@
+@* </main> *@
 
 <!-- Empty State (Hidden by default) -->
 <div class="hidden container mx-auto px-4 py-16 text-center">

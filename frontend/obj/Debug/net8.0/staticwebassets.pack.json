@@ -249,6 +249,66 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\22492.jpg",
+      "PackagePath": "staticwebassets\\uploads\\22492.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\3491949.ai",
+      "PackagePath": "staticwebassets\\uploads\\3491949.ai"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\7571aac9ae1fe13124a4cb3145e33570.jpg",
+      "PackagePath": "staticwebassets\\uploads\\7571aac9ae1fe13124a4cb3145e33570.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\HappBirthday.jpg",
+      "PackagePath": "staticwebassets\\uploads\\HappBirthday.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\HappBirthday2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\HappBirthday2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\HappBirthday3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\HappBirthday3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\HappBirthday4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\HappBirthday4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\SL.111019.24830.39.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SL.111019.24830.39.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday11.avif",
+      "PackagePath": "staticwebassets\\uploads\\birthday11.avif"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\birthday6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday7.jpg",
+      "PackagePath": "staticwebassets\\uploads\\birthday7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\birthday9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\elephant.jpg",
+      "PackagePath": "staticwebassets\\uploads\\elephant.jpg"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\fe637600-886c-4db8-919a-2c3e80da0ac8.png",
+      "PackagePath": "staticwebassets\\uploads\\fe637600-886c-4db8-919a-2c3e80da0ac8.png"
+    },
+    {
+      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\new.jpg",
+      "PackagePath": "staticwebassets\\uploads\\new.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.frontend.props",
       "PackagePath": "build\\frontend.props"
     },

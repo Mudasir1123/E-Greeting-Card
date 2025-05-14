@@ -10,6 +10,7 @@ namespace frontend.Models
         public string Title { get; set; }
 
         public string Description { get; set; }
+        //price
 
         public int DiscountPercentage { get; set; }
 
@@ -19,7 +20,7 @@ namespace frontend.Models
 
         public bool IsActive { get; set; } = true;
 
-        // Optional: Offers linked to subscriptions
+        //Optional: Offers linked to subscriptions
         public ICollection<Subscription> Subscriptions { get; set; }
     }
 
