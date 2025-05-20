@@ -1,160 +1,114 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using frontend.Data;
-using frontend.Models;
+﻿//using EGreeting.Models;
+//using frontend.Data;
+//using frontend.Models;
+//using Microsoft.AspNetCore.Mvc;
+//using System;
+//using System.Linq;
 
-namespace ECardWebsite.Controllers
-{
-    public class OfferController : Controller
-    {
-        private readonly ApplicationDbContext _context;
+//namespace frontend.Controllers
+//{
+//    public class OfferController : Controller
+//    {
+//        private readonly ApplicationDbContext _context;
 
-        public OfferController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+//        public OfferController(ApplicationDbContext context)
+//        {
+//            _context = context;
+//        }
 
-        // GET: Offer
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Offers.ToListAsync());
-        }
+//        // GET: /Offer
+//        public IActionResult Index()
+//        {
+//            var offers = _context.Offers
+//                .OrderByDescending(o => o.IsActive)
+//                .ThenByDescending(o => o.CreatedAt)
+//                .ToList();
 
-        // GET: Offer/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+//            return View("~/Views/Admin/Offer/Index.cshtml", offers);
+//        }
 
-            var offer = await _context.Offers
-                .Include(o => o.Subscriptions)
-                //.ThenInclude(s => s.User)
-                .FirstOrDefaultAsync(m => m.OfferId == id);
+//        // GET: /Offer/Create
+//        public IActionResult Create()
+//        {
+//            var offer = new Offer
+//            {
+//                StartDate = DateTime.Now,
+//                EndDate = DateTime.Now.AddMonths(1),
+//                IsActive = true,
+//                CreatedAt = DateTime.Now,
+//                UpdatedAt = DateTime.Now
+//            };
 
-            if (offer == null)
-            {
-                return NotFound();
-            }
+//            return View("~/Views/Admin/Offer/Create.cshtml", offer);
+//        }
 
-            return View(offer);
-        }
+//        // POST: /Offer/Create
+//        [HttpPost]
+//        public IActionResult Create(Offer offer)
+//        {
+//            offer.CreatedAt = DateTime.Now;
+//            offer.UpdatedAt = DateTime.Now;
 
-        // GET: Offer/Create
-        public IActionResult Create()
-        {
-            // Set default dates
-            var offer = new Offer
-            {
-                StartDate = DateTime.Today,
-                EndDate = DateTime.Today.AddMonths(1)
-            };
-            return View(offer);
-        }
+//            _context.Offers.Add(offer);
+//            _context.SaveChanges();
 
-        // POST: Offer/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Description,DiscountPercentage,StartDate,EndDate,IsActive")] Offer offer)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(offer);
-                await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Offer created successfully!";
-                return RedirectToAction(nameof(Index));
-            }
-            return View(offer);
-        }
+//            return RedirectToAction("Index");
+//        }
 
-        // GET: Offer/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+//        // GET: /Offer/Edit/5
+//        public IActionResult Edit(int id)
+//        {
+//            var offer = _context.Offers.Find(id);
+//            return offer == null
+//                ? NotFound()
+//                : View("~/Views/Admin/Offer/Edit.cshtml", offer);
+//        }
 
-            var offer = await _context.Offers.FindAsync(id);
-            if (offer == null)
-            {
-                return NotFound();
-            }
-            return View(offer);
-        }
+//        // POST: /Offer/Edit/5
+//        [HttpPost]
+//        public IActionResult Edit(Offer offer)
+//        {
+//            offer.UpdatedAt = DateTime.Now;
+//            _context.Offers.Update(offer);
+//            _context.SaveChanges();
 
-        // POST: Offer/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OfferId,Title,Description,DiscountPercentage,StartDate,EndDate,IsActive")] Offer offer)
-        {
-            if (id != offer.OfferId)
-            {
-                return NotFound();
-            }
+//            return RedirectToAction("Index");
+//        }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(offer);
-                    await _context.SaveChangesAsync();
-                    TempData["SuccessMessage"] = "Offer updated successfully!";
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OfferExists(offer.OfferId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(offer);
-        }
+//        // POST: /Offer/Delete/5
+//        [HttpPost]
+//        public IActionResult Delete(int id)
+//        {
+//            var offer = _context.Offers.Find(id);
+//            if (offer == null) return NotFound();
 
-        // GET: Offer/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+//            if (offer.UsedCount > 0)
+//            {
+//                offer.IsActive = false;
+//                _context.Offers.Update(offer);
+//            }
+//            else
+//            {
+//                _context.Offers.Remove(offer);
+//            }
 
-            var offer = await _context.Offers
-                .FirstOrDefaultAsync(m => m.OfferId == id);
-            if (offer == null)
-            {
-                return NotFound();
-            }
+//            _context.SaveChanges();
+//            return RedirectToAction("Index");
+//        }
 
-            return View(offer);
-        }
+//        // POST: /Offer/ToggleActive/5
+//        [HttpPost]
+//        public IActionResult ToggleActive(int id)
+//        {
+//            var offer = _context.Offers.Find(id);
+//            if (offer == null) return NotFound();
 
-        // POST: Offer/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var offer = await _context.Offers.FindAsync(id);
-            if (offer != null)
-            {
-                _context.Offers.Remove(offer);
-                await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Offer deleted successfully!";
-            }
+//            offer.IsActive = !offer.IsActive;
+//            offer.UpdatedAt = DateTime.Now;
+//            _context.Offers.Update(offer);
+//            _context.SaveChanges();
 
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool OfferExists(int id)
-        {
-            return _context.Offers.Any(e => e.OfferId == id);
-        }
-    }
-}
+//            return RedirectToAction("Index");
+//        }
+//    }
+//}

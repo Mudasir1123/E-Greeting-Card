@@ -1,122 +1,135 @@
-﻿using frontend.Data;
-using frontend.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿//using frontend.Data;
+//using frontend.Migrations;
+//using frontend.Models;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore;
+//using System;
+//using System.Linq;
 
-namespace frontend.Controllers
-{
-    public class SubscriptionController : Controller
-    {
-        private readonly ApplicationDbContext _context;
+//namespace frontend.Controllers
+//{
+//    public class SubscriptionController : Controller
+//    {
+//        private readonly ApplicationDbContext _context;
 
-        public SubscriptionController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+//        public SubscriptionController(ApplicationDbContext context)
+//        {
+//            _context = context;
+//        }
 
-        // GET: /Subscription
-        public IActionResult Index()
-        {
-            var subscriptions = _context.Subscriptions
-                .Include(s => s.Offer)
-                .OrderByDescending(s => s.CreatedAt)
-                .ToList();
+//        // GET: /Subscription
+//        public IActionResult Index()
+//        {
+//            var subscriptions = _context.Subscriptions
+//                .Include(s => s.Plan)
+//                .Include(s => s.Offer)
+//                .OrderByDescending(s => s.StartDate)
+//                .ToList();
 
-            return View("~/Views/Admin/Subscription/Index.cshtml", subscriptions);
-        }
+//            return View("~/Views/Admin/Subscription/Index.cshtml", subscriptions);
+//        }
 
-        // GET: /Subscription/Create
-        public IActionResult Create()
-        {
-            ViewBag.Offers = _context.Offers.ToList();
-            return View("~/Views/Admin/Subscription/Create.cshtml");
-        }
+//        // GET: /Subscription/Create
+//        public IActionResult Create()
+//        {
+//            ViewBag.Plans = _context.Plans.Where(p => p.IsActive).ToList();
+//            ViewBag.Offers = _context.Offers
+//                .Where(o => o.IsActive && o.StartDate <= DateTime.Now && o.EndDate >= DateTime.Now)
+//                .ToList();
 
-        // POST: /Subscription/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Subscription subscription)
-        {
-            subscription.CreatedAt = DateTime.Now;
-            subscription.UpdatedAt = DateTime.Now;
-            subscription.StartDate = DateTime.Now;
-            subscription.EndDate = subscription.StartDate.AddMonths(1);
+//            return View("~/Views/Admin/Subscription/Create.cshtml");
+//        }
 
-            _context.Subscriptions.Add(subscription);
-            _context.SaveChanges();
+//        // POST: /Subscription/Create
+//        [HttpPost]
+//        public IActionResult Create(Subscription subscription)
+//        {
+//            var plan = _context.Plans.Find(subscription.PlanId);
+//            if (plan == null) return NotFound();
 
-            TempData["SuccessMessage"] = "Subscription created successfully!";
-            return RedirectToAction("Index");
-        }
+//            subscription.StartDate = DateTime.Now;
+//            subscription.EndDate = DateTime.Now.AddMonths(plan.DurationInMonths);
+//            subscription.Amount = plan.Price;
+//            subscription.FinalAmount = plan.Price;
 
-        // GET: /Subscription/Edit/5
-        public IActionResult Edit(int id)
-        {
-            var subscription = _context.Subscriptions.Find(id);
-            if (subscription == null)
-            {
-                return NotFound();
-            }
+//            if (subscription.OfferId.HasValue)
+//            {
+//                var offer = _context.Offers.Find(subscription.OfferId);
+//                if (offer != null)
+//                {
+//                    subscription.DiscountAmount = plan.Price * (offer.DiscountPercentage / 100);
+//                    subscription.FinalAmount = plan.Price - subscription.DiscountAmount;
+//                }
+//            }
 
-            ViewBag.Offers = _context.Offers.ToList();
-            return View("~/Views/Admin/Subscription/Edit.cshtml", subscription);
-        }
+//            _context.Subscriptions.Add(subscription);
+//            _context.SaveChanges();
 
-        // POST: /Subscription/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(Subscription subscription)
-        {
-            var existing = _context.Subscriptions.Find(subscription.SubscriptionId);
-            if (existing == null)
-            {
-                return NotFound();
-            }
+//            return RedirectToAction("Index");
+//        }
 
-            existing.EmailList = subscription.EmailList;
-            existing.OfferId = subscription.OfferId;
-            existing.StartDate = subscription.StartDate;
-            existing.EndDate = subscription.EndDate;
-            existing.IsActive = subscription.IsActive;
-            existing.PaymentVerified = subscription.PaymentVerified;
-            existing.UpdatedAt = DateTime.Now;
+//        // GET: /Subscription/Edit/5
+//        public IActionResult Edit(int id)
+//        {
+//            var subscription = _context.Subscriptions
+//                .Include(s => s.Plan)
+//                .Include(s => s.Offer)
+//                .FirstOrDefault(s => s.Id == id);
 
-            _context.Subscriptions.Update(existing);
-            _context.SaveChanges();
+//            if (subscription == null) return NotFound();
 
-            TempData["SuccessMessage"] = "Subscription updated successfully!";
-            return RedirectToAction("Index");
-        }
+//            ViewBag.Plans = _context.Plans.ToList();
+//            ViewBag.Offers = _context.Offers.ToList();
 
-        // GET: /Subscription/Details/5
-        public IActionResult Details(int id)
-        {
-            var subscription = _context.Subscriptions
-                .Include(s => s.Offer)
-                .FirstOrDefault(s => s.SubscriptionId == id);
+//            return View("~/Views/Admin/Subscription/Edit.cshtml", subscription);
+//        }
 
-            if (subscription == null)
-            {
-                return NotFound();
-            }
+//        // POST: /Subscription/Edit/5
+//        [HttpPost]
+//        public IActionResult Edit(Subscription subscription)
+//        {
+//            var existing = _context.Subscriptions.Find(subscription.Id);
+//            if (existing == null) return NotFound();
 
-            return View("~/Views/Admin/Subscription/Details.cshtml", subscription);
-        }
+//            existing.PlanId = subscription.PlanId;
+//            existing.OfferId = subscription.OfferId;
+//            existing.IsActive = subscription.IsActive;
+//            existing.UpdatedAt = DateTime.Now;
 
-        // GET: /Subscription/Delete/5
-        public IActionResult Delete(int id)
-        {
-            var subscription = _context.Subscriptions.Find(id);
-            if (subscription == null)
-            {
-                return NotFound();
-            }
+//            _context.Subscriptions.Update(existing);
+//            _context.SaveChanges();
 
-            _context.Subscriptions.Remove(subscription);
-            _context.SaveChanges();
+//            return RedirectToAction("Index");
+//        }
 
-            TempData["SuccessMessage"] = "Subscription deleted successfully!";
-            return RedirectToAction("Index");
-        }
-    }
-}
+//        // POST: /Subscription/Cancel/5
+//        [HttpPost]
+//        public IActionResult Cancel(int id)
+//        {
+//            var subscription = _context.Subscriptions.Find(id);
+//            if (subscription == null) return NotFound();
+
+//            subscription.IsActive = false;
+//            subscription.CancelledDate = DateTime.Now;
+//            subscription.UpdatedAt = DateTime.Now;
+
+//            _context.Subscriptions.Update(subscription);
+//            _context.SaveChanges();
+
+//            return RedirectToAction("Index");
+//        }
+
+//        // GET: /Subscription/Details/5
+//        public IActionResult Details(int id)
+//        {
+//            var subscription = _context.Subscriptions
+//                .Include(s => s.Plan)
+//                .Include(s => s.Offer)
+//                .FirstOrDefault(s => s.Id == id);
+
+//            return subscription == null
+//                ? NotFound()
+//                : View("~/Views/Admin/Subscription/Details.cshtml", subscription);
+//        }
+//    }
+//}

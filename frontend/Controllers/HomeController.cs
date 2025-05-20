@@ -32,7 +32,7 @@ namespace frontend.Controllers
             var cards = _context.ECardTemplates.Include(e => e.Category).ToList();
             return View(cards);
         }
-
+        public IActionResult AccessDenied() => View();
         public IActionResult Privacy()
         {
             return View();

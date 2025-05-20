@@ -1,47 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace frontend.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+        public IActionResult Dashboard() => View();
 
-        public IActionResult CardManagement()
-        {
-            return View();
-        }
+        public IActionResult CardManagement() => View();
 
-        public IActionResult UserManagement()
-        {
-            return View();
-        }
+        public IActionResult UserManagement() => View();
 
-        public IActionResult Categories()
-        {
-            return View();
-        }
+        public IActionResult Categories() => View();
 
-        public IActionResult Templates()
-        {
-            return View();
-        }
+        public IActionResult Templates() => View();
 
-        public IActionResult Subscriptions()
-        {
-            return View();
-        }
+        public IActionResult Subscriptions() => View();
 
-        public IActionResult Analytics()
-        {
-            return View();
-        }
+        public IActionResult Analytics() => View();
 
-        public IActionResult Settings()
-        {
-            return View();
-        }
+        public IActionResult Settings() => View();
     }
 }

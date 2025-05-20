@@ -44,8 +44,8 @@
                 <a asp-controller="Home" asp-action="Index" class="text-3xl font-['Pacifico'] text-primary">E-Greeting Card</a>
                 <nav class="hidden md:flex ml-10 space-x-8">
                     <a asp-controller="Card" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">My Cards</a>
-                    <a asp-controller="Subscription" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Subscriptions</a>
-                    <a asp-controller="Price" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Pricing</a>
+                    @* <a asp-controller="Subscription" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Subscriptions</a> *@
+                    @* <a asp-controller="Price" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Pricing</a> *@
                     <a asp-controller="About" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">About</a>
                     <a asp-controller="Contact" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
                 </nav>
@@ -58,16 +58,16 @@
                         <i class="ri-search-line"></i>
                     </div>
                 </div>
-                <a asp-controller="Account" asp-action="Login"
-                   class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
-                    Log
-                    In
-                </a>
-                <a asp-controller="Account" asp-action="SignUp"
-                   class="!rounded-button bg-primary text-white px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-                    Sign
-                    Up
-                </a>
+                @* <a asp-area="Identity" asp-page="/Account/Login" *@
+                @*    class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"> *@
+                @*     Log In *@
+                @* </a> *@
+                @* <a asp-controller="Account" asp-action="SignUp" *@
+                @*    class="!rounded-button bg-primary text-white px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"> *@
+                @*     Sign *@
+                @*     Up *@
+                @* </a> *@
+                <partial name="_LoginPartial" />
             </div>
         </div>
     </header>

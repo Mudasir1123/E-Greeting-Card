@@ -1,0 +1,212 @@
+﻿@page
+@model frontend.Areas.Identity.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Sign Up - E-Greeting";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#f59e0b'
+                    },
+                    borderRadius: {
+                        button: '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <style>
+        /* Your CSS styles for the form */
+        .custom-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+            .custom-checkbox:checked {
+                background-color: #4f46e5;
+                border-color: #4f46e5;
+            }
+
+                .custom-checkbox:checked::after {
+                    content: '';
+                    position: absolute;
+                    left: 6px;
+                    top: 2px;
+                    width: 5px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .input-error {
+            border-color: #ef4444 !important;
+        }
+
+        .rounded-button {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <main class="flex-grow flex items-center justify-center py-12 px-4">
+        <div class="bg-white rounded-lg shadow-md w-full max-w-md p-8">
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">Create an Account</h1>
+                <p class="text-gray-600">Join us today</p>
+            </div>
+
+            <div asp-validation-summary="ModelOnly" class="mb-4 p-4 bg-red-100 text-red-700 rounded-md"></div>
+
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div class="space-y-6">
+                    <!-- Email -->
+                    <div>
+                        <label asp-for="Input.Email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="ri-mail-line text-gray-400"></i>
+                            </div>
+                            <input asp-for="Input.Email" class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
+                                   autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                            <span asp-validation-for="Input.Email" class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Role -->
+                    <div>
+                        <label asp-for="Input.Role" class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                        <div class="relative">
+                            <select asp-for="Input.Role" class="block w-full pl-3 pr-10 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
+                                    aria-required="true">
+                                <option value="">Select a role</option>
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                                <!-- Add more roles as needed -->
+                            </select>
+                            <span asp-validation-for="Input.Role" class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label asp-for="Input.Password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="ri-lock-line text-gray-400"></i>
+                            </div>
+                            <input asp-for="Input.Password" class="block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
+                                   autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <span asp-validation-for="Input.Password" class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label asp-for="Input.ConfirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="ri-lock-line text-gray-400"></i>
+                            </div>
+                            <input asp-for="Input.ConfirmPassword" class="block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-button text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
+                                   autocomplete="new-password" aria-required="true" placeholder="confirm password" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <!-- Terms Checkbox -->
+                    <div class="flex items-center">
+                        <input asp-for="Input.AcceptTerms" type="checkbox" id="terms" class="custom-checkbox" />
+                        <label asp-for="Input.AcceptTerms" class="ml-2 block text-sm text-gray-700 cursor-pointer">
+                            I agree to the <a href="#" class="text-primary hover:text-primary/80">Terms and Conditions</a>
+                        </label>
+                        <span asp-validation-for="Input.AcceptTerms" class="error-message ml-2"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button id="registerSubmit" type="submit" class="w-full rounded-button bg-primary text-white py-2.5 font-medium hover:bg-primary/90 transition-colors">
+                        Sign Up
+                    </button>
+
+                    <!-- Validation Summary -->
+                    <div asp-validation-summary="All" class="text-red-600 text-sm mt-3"></div>
+                </div>
+            </form>
+
+            <!-- Login Link -->
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">
+                    Already have an account?
+                    <a asp-page="./Login" class="font-medium text-primary hover:text-primary/80">Log In</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Password match validation
+            const passwordInput = document.getElementById('Input_Password');
+            const confirmPasswordInput = document.getElementById('Input_ConfirmPassword');
+
+            function validatePasswordMatch() {
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    confirmPasswordInput.classList.add('input-error');
+                } else {
+                    confirmPasswordInput.classList.remove('input-error');
+                }
+            }
+
+            if (passwordInput && confirmPasswordInput) {
+                passwordInput.addEventListener('input', validatePasswordMatch);
+                confirmPasswordInput.addEventListener('input', validatePasswordMatch);
+            }
+
+            // Terms checkbox validation
+            const termsCheckbox = document.getElementById('terms');
+            const form = document.getElementById('registerForm');
+
+            form?.addEventListener('submit', function (e) {
+                if (!termsCheckbox.checked) {
+                    e.preventDefault();
+                    termsCheckbox.parentElement.classList.add('text-red-500');
+                }
+            });
+
+            termsCheckbox?.addEventListener('change', function () {
+                if (termsCheckbox.checked) {
+                    termsCheckbox.parentElement.classList.remove('text-red-500');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

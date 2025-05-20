@@ -1,0 +1,106 @@
+﻿<div id="offerModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" id="offerModalBackdrop"></div>
+
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-auto overflow-hidden">
+            <!-- Close button -->
+            <button type="button" class="absolute top-3 right-3 text-gray-400 hover:text-gray-500" id="closeOfferModal">
+                <span class="sr-only">Close</span>
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-close-line ri-lg"></i>
+                </div>
+            </button>
+
+            <!-- Special offer content -->
+            <div class="relative overflow-hidden">
+                <!-- Background image and gradient overlay -->
+                <div class="absolute inset-0 bg-cover bg-center"
+                     style="background-image: url('https://readdy.ai/api/search-image?query=A%20festive%20digital%20greeting%20card%20with%20celebration%20elements%20like%20confetti%20and%20balloons%20on%20a%20soft%20gradient%20background.%20Professional%20digital%20design%20with%20elegant%20typography.&width=600&height=300&seq=11&orientation=landscape');">
+                    <div class="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/95"></div>
+                </div>
+
+                <!-- Offer content -->
+                <div class="relative p-6 text-center text-white">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center mb-4">
+                        <div class="w-8 h-8 flex items-center justify-center text-white">
+                            <i class="ri-gift-line ri-xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Special Offer!</h3>
+                    <p class="text-white/90 mb-2">For new users only</p>
+                    <div class="text-3xl font-bold mb-2">50% OFF</div>
+                    <p class="text-white/90 mb-4">Your first month of Premium</p>
+                </div>
+            </div>
+
+            <!-- Offer details -->
+            <div class="p-6">
+                <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Premium includes:</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-3 text-gray-600">20 e-cards per month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-3 text-gray-600">Access to all templates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary mt-0.5">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-3 text-gray-600">Advanced customization</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col space-y-3">
+                    <a href="/Subscription/Subscribe?plan=premium&offer=new50"
+                       class="!rounded-button bg-primary text-white px-4 py-3 font-medium hover:bg-primary/90 transition-colors whitespace-nowrap text-center">
+                        Get Premium for $4.99/mo
+                    </a>
+                    <button type="button" id="offerModalNoThanks"
+                            class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-3 font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        No thanks, maybe later
+                    </button>
+                </div>
+
+                <p class="text-xs text-gray-500 mt-4 text-center">
+                    Offer valid for new users only. $4.99/month for the first month, then $9.99/month.
+                    You can cancel anytime before the end of your first month.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Show offer modal after 5 seconds if user is not logged in
+        const isLoggedIn = @(User.Identity.IsAuthenticated ? "true" : "false");
+        const hasSeenOffer = localStorage.getItem('hasSeenOffer');
+
+        if (!isLoggedIn && !hasSeenOffer) {
+            setTimeout(function() {
+                document.getElementById('offerModal').classList.remove('hidden');
+                localStorage.setItem('hasSeenOffer', 'true');
+            }, 5000);
+        }
+
+        // Close modal handlers
+        document.getElementById('closeOfferModal').addEventListener('click', closeOfferModal);
+        document.getElementById('offerModalBackdrop').addEventListener('click', closeOfferModal);
+        document.getElementById('offerModalNoThanks').addEventListener('click', closeOfferModal);
+
+        function closeOfferModal() {
+            document.getElementById('offerModal').classList.add('hidden');
+        }
+    });
+</script>
