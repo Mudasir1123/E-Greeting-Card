@@ -59,22 +59,8 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-wwwroot\uploads\0894a5312a3dd99549565e04f16a6b75.jpg
-wwwroot\uploads\1523893-valentine.webp
 wwwroot\uploads\22492.jpg
-wwwroot\uploads\3491949.ai
 wwwroot\uploads\7571aac9ae1fe13124a4cb3145e33570.jpg
-wwwroot\uploads\anniversary.jpg
-wwwroot\uploads\anniversary10.jpeg
-wwwroot\uploads\anniversary2.jpg
-wwwroot\uploads\anniversary3.webp
-wwwroot\uploads\anniversary4.jpg
-wwwroot\uploads\anniversary5.jpg
-wwwroot\uploads\anniversary6.jpg
-wwwroot\uploads\anniversary7.webp
-wwwroot\uploads\anniversary8.jpg
-wwwroot\uploads\anniversary9.jpeg
-wwwroot\uploads\birthday11.avif
 wwwroot\uploads\birthday6.jpg
 wwwroot\uploads\birthday7.jpg
 wwwroot\uploads\birthday9.jpg
@@ -88,33 +74,10 @@ wwwroot\uploads\Congratulation6.jpg
 wwwroot\uploads\Congratulation7.jpg
 wwwroot\uploads\Congratulation8.jpg
 wwwroot\uploads\Congratulation9.webp
-wwwroot\uploads\elephant.jpg
-wwwroot\uploads\FatherDay1.jpg
-wwwroot\uploads\FatherDay2.jpg
-wwwroot\uploads\FatherDay3.jpg
-wwwroot\uploads\FatherDay4.jpg
-wwwroot\uploads\FatherDay5.jpg
-wwwroot\uploads\FatherDay6.jpg
-wwwroot\uploads\FatherDay7.jpg
-wwwroot\uploads\FatherDay8.webp
-wwwroot\uploads\FatherDay9.jpg
-wwwroot\uploads\fe637600-886c-4db8-919a-2c3e80da0ac8.png
 wwwroot\uploads\HappBirthday.jpg
 wwwroot\uploads\HappBirthday2.jpg
 wwwroot\uploads\HappBirthday3.jpg
 wwwroot\uploads\HappBirthday4.jpg
-wwwroot\uploads\Happy Father Day.jpg
-wwwroot\uploads\Happy New Year.jpg
-wwwroot\uploads\Happy New Year1.webp
-wwwroot\uploads\Happy New Year3.gif
-wwwroot\uploads\Happy New Year4.gif
-wwwroot\uploads\Happy New Year5.jpg
-wwwroot\uploads\Happy New Year6.jpg
-wwwroot\uploads\Happy New Year7.gif
-wwwroot\uploads\Happy New Year8.gif
-wwwroot\uploads\Happy New Year8.jpg
-wwwroot\uploads\Happy New Year9.gif
-wwwroot\uploads\Happy-Valentines-Day.jpg
 wwwroot\uploads\MotherDay.jpg
 wwwroot\uploads\MotherDay10.jpg
 wwwroot\uploads\MotherDay11.jpg
@@ -125,12 +88,4 @@ wwwroot\uploads\MotherDay6.jpg
 wwwroot\uploads\MotherDay7.jpg
 wwwroot\uploads\MotherDay8.webp
 wwwroot\uploads\MotherDay9.jpg
-wwwroot\uploads\new.jpg
 wwwroot\uploads\SL.111019.24830.39.jpg
-wwwroot\uploads\Velentine1.jpg
-wwwroot\uploads\Velentine10.jpg
-wwwroot\uploads\Velentine13.jpg
-wwwroot\uploads\Velentine14.jpg
-wwwroot\uploads\Velentine5.jpg
-wwwroot\uploads\Velentine6.jpg
-wwwroot\uploads\Velentine7.jpg

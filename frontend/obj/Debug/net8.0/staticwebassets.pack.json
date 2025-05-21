@@ -249,20 +249,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\0894a5312a3dd99549565e04f16a6b75.jpg",
-      "PackagePath": "staticwebassets\\uploads\\0894a5312a3dd99549565e04f16a6b75.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\1523893-valentine.webp",
-      "PackagePath": "staticwebassets\\uploads\\1523893-valentine.webp"
-    },
-    {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\22492.jpg",
       "PackagePath": "staticwebassets\\uploads\\22492.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\3491949.ai",
-      "PackagePath": "staticwebassets\\uploads\\3491949.ai"
     },
     {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\7571aac9ae1fe13124a4cb3145e33570.jpg",
@@ -309,42 +297,6 @@
       "PackagePath": "staticwebassets\\uploads\\Congratulation9.webp"
     },
     {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay1.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay2.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay3.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay4.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay5.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay6.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay7.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay8.webp",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay8.webp"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\FatherDay9.jpg",
-      "PackagePath": "staticwebassets\\uploads\\FatherDay9.jpg"
-    },
-    {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\HappBirthday.jpg",
       "PackagePath": "staticwebassets\\uploads\\HappBirthday.jpg"
     },
@@ -359,54 +311,6 @@
     {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\HappBirthday4.jpg",
       "PackagePath": "staticwebassets\\uploads\\HappBirthday4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy Father Day.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Happy Father Day.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year1.webp",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year1.webp"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year3.gif",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year3.gif"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year4.gif",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year4.gif"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year5.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year6.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year7.gif",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year7.gif"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year8.gif",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year8.gif"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year8.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year8.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy New Year9.gif",
-      "PackagePath": "staticwebassets\\uploads\\Happy New Year9.gif"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Happy-Valentines-Day.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Happy-Valentines-Day.jpg"
     },
     {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\MotherDay.jpg",
@@ -453,78 +357,6 @@
       "PackagePath": "staticwebassets\\uploads\\SL.111019.24830.39.jpg"
     },
     {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine1.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine10.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine10.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine13.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine13.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine14.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine14.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine5.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine6.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\Velentine7.jpg",
-      "PackagePath": "staticwebassets\\uploads\\Velentine7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary.jpg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary10.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary10.jpeg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary2.jpg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary3.webp",
-      "PackagePath": "staticwebassets\\uploads\\anniversary3.webp"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary4.jpg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary5.jpg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary6.jpg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary7.webp",
-      "PackagePath": "staticwebassets\\uploads\\anniversary7.webp"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary8.jpg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary8.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\anniversary9.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\anniversary9.jpeg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday11.avif",
-      "PackagePath": "staticwebassets\\uploads\\birthday11.avif"
-    },
-    {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday6.jpg",
       "PackagePath": "staticwebassets\\uploads\\birthday6.jpg"
     },
@@ -535,18 +367,6 @@
     {
       "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\birthday9.jpg",
       "PackagePath": "staticwebassets\\uploads\\birthday9.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\elephant.jpg",
-      "PackagePath": "staticwebassets\\uploads\\elephant.jpg"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\fe637600-886c-4db8-919a-2c3e80da0ac8.png",
-      "PackagePath": "staticwebassets\\uploads\\fe637600-886c-4db8-919a-2c3e80da0ac8.png"
-    },
-    {
-      "Id": "C:\\Users\\M Mudasir\\Pictures\\frontend\\frontend\\wwwroot\\uploads\\new.jpg",
-      "PackagePath": "staticwebassets\\uploads\\new.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.frontend.props",
