@@ -85,19 +85,5 @@ namespace frontend.Controllers
             return View(category);
         }
 
-        //public IActionResult ToggleActive(int id)
-        //{
-        //    var category = _context.Categories.Find(id);
-        //    if (category == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    category.IsActive = !category.IsActive;
-        //    _context.Categories.Update(category);
-        //    _context.SaveChanges();
-
-        //    return RedirectToAction("Index");
-        //}
     }
 }

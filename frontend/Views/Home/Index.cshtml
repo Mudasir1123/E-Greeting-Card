@@ -1,4 +1,4 @@
-﻿@model IEnumerable<frontend.Models.ECardTemplate>
+﻿@model List<frontend.Models.ECardTemplate>
 @{
     ViewData["Title"] = "E-Greeting - Personalized Digital Greeting Cards";
 }
@@ -20,14 +20,14 @@
                 easy-to-use platform. Send instantly or schedule for the perfect moment.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#"
+                <a href="#templates"
                    class="!rounded-button bg-primary text-white px-6 py-3 text-base font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center">
                     <span>Browse Templates</span>
                     <div class="w-5 h-5 ml-2 flex items-center justify-center">
                         <i class="ri-arrow-right-line"></i>
                     </div>
                 </a>
-                <a href="#"
+                <a href="#how-it-works"
                    class="!rounded-button bg-white text-gray-800 border border-gray-300 px-6 py-3 text-base font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
                     <span>How It Works</span>
                     <div class="w-5 h-5 ml-2 flex items-center justify-center">
@@ -40,7 +40,7 @@
 </section>
 
 <!-- Category Filters -->
-<section class="py-12 bg-gray-50">
+<section id="templates" class="py-12 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="flex flex-col items-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Find the Perfect Template</h2>
@@ -51,88 +51,77 @@
         </div>
 
         <!-- Category Tabs -->
-        <div class="flex justify-center mb-8">
+        <div class="flex justify-center mb-8 overflow-x-auto">
             <div class="inline-flex p-1 bg-gray-100 rounded-full">
-                <button class="px-6 py-2 rounded-full bg-white shadow-sm text-gray-900 font-medium">
-                    All
-                    Categories
-                </button>
-                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Birthdays</button>
-                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Holidays</button>
-                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Thank You</button>
-                <button class="px-6 py-2 rounded-full text-gray-600 hover:text-gray-900">Congratulations</button>
+                <a asp-action="Index"
+                   class="px-6 py-2 rounded-full font-medium transition-all
+                          @(ViewBag.SelectedCategoryId == null ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900")">
+                    All Categories
+                </a>
+
+                @foreach (var category in ViewBag.Categories)
+                {
+                    <a asp-action="Index" asp-route-categoryId="@category.CategoryId" asp-route-searchTerm="@ViewBag.SearchTerm"
+                       class="px-6 py-2 rounded-full font-medium transition-all
+                              @(ViewBag.SelectedCategoryId == category.CategoryId ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900")">
+                        @category.Name
+                    </a>
+                }
             </div>
         </div>
-
-        <!-- Sort and Filter -->
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-            <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                <span class="text-gray-700 font-medium">Filter by:</span>
-                <div class="relative">
-                    <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
-                        <span>Occasion</span>
-                        <div class="w-4 h-4 flex items-center justify-center">
-                            <i class="ri-arrow-down-s-line"></i>
-                        </div>
-                    </button>
-                </div>
-                <div class="relative">
-                    <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
-                        <span>Style</span>
-                        <div class="w-4 h-4 flex items-center justify-center">
-                            <i class="ri-arrow-down-s-line"></i>
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <div class="relative">
-                <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
-                    <span>Sort by: Newest</span>
-                    <div class="w-4 h-4 flex items-center justify-center">
-                        <i class="ri-arrow-down-s-line"></i>
-                    </div>
-                </button>
-            </div>
-        </div>
-
 
         <!-- Card Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            @foreach (var item in Model)
-            {
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
-                    <div class="relative aspect-[4/3] overflow-hidden">
-                        <img src="~/uploads/@item.ImageUrl" alt="@item.Title" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-                        <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
-                                <i class="ri-heart-line"></i>
+        @if (Model.Any())
+        {
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                @foreach (var item in Model)
+                {
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img src="~/uploads/@item.ImageUrl" alt="@item.Title" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute top-2 right-2 bg-white/90 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-700 hover:text-primary">
+                                    <i class="ri-heart-line"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-medium text-gray-900">@item.Title</h3>
-                            @* <span class="text-sm font-medium text-primary">$2.99</span> <!-- You can replace this with actual pricing if needed --> *@
-                        </div>
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                <i class="ri-star-fill text-yellow-400"></i>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-medium text-gray-900">@item.Title</h3>
                             </div>
-                            <span>4.8 (124 reviews)</span> <!-- Replace with actual dynamic data if needed -->
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1">
+                                    <i class="ri-star-fill text-yellow-400"></i>
+                                </div>
+                                <span>4.8 (124 reviews)</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">@item.Category?.Name</span>
+                            </div>
+                            <a asp-action="Detail" asp-route-id="@item.TemplateId"
+                               asp-route-categoryId="@ViewBag.SelectedCategoryId"
+                               asp-route-searchTerm="@ViewBag.SearchTerm"
+                               class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap">
+                                Send Now
+                            </a>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">@item.Category?.Name</span>
-                        </div>
-                        <a asp-action="Detail" asp-route-id="@item.TemplateId" class="w-full !rounded-button bg-primary/10 text-primary px-4 py-2 text-sm font-medium hover:bg-primary/20 transition-colors whitespace-nowrap" title="View & Send">
-                            Send Now
-                        </a>
-
-
                     </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-12">
+                <div class="w-20 h-20 mx-auto mb-4 text-gray-400">
+                    <i class="ri-search-off-line ri-5x"></i>
                 </div>
-            }
-        </div>
-
+                <h3 class="text-xl font-medium text-gray-900 mb-2">No templates found</h3>
+                <p class="text-gray-600">Try adjusting your search or filter criteria</p>
+                <a asp-action="Index" class="mt-4 inline-block !rounded-button bg-primary text-white px-4 py-2 text-sm font-medium">
+                    Clear filters
+                </a>
+            </div>
+        }
 
 
         <!-- Load More Button -->
@@ -148,7 +137,7 @@
 </section>
 
 <!-- How It Works Section -->
-<section class="py-16 bg-white">
+<section id="how-it-works" class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="flex flex-col items-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
@@ -247,4 +236,4 @@
 </section>
 
 <!-- Newsletter Section -->
-<partial name="_NewsletterPartial" />
+<partial name="_NewsletterPartial"   />

@@ -16,10 +16,11 @@ namespace frontend.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _config;
 
-        public HomeController(ILogger<HomeController> logger,
-                    IWebHostEnvironment env,
-                    ApplicationDbContext context,
-                    IConfiguration config)
+        public HomeController(
+            ILogger<HomeController> logger,
+            IWebHostEnvironment env,
+            ApplicationDbContext context,
+            IConfiguration config)
         {
             _logger = logger;
             _env = env;
@@ -27,19 +28,39 @@ namespace frontend.Controllers
             _config = config;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? categoryId, string searchTerm)
         {
-            var cards = _context.ECardTemplates.Include(e => e.Category).ToList();
+            var query = _context.ECardTemplates.Include(e => e.Category).AsQueryable();
+
+            // Apply category filter if specified
+            if (categoryId.HasValue)
+            {
+                query = query.Where(e => e.CategoryId == categoryId.Value);
+            }
+
+            // Apply search filter if specified
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(e =>
+                    e.Title.Contains(searchTerm) ||
+                    e.Description.Contains(searchTerm) ||
+                    e.Category.Name.Contains(searchTerm));
+            }
+
+            var cards = query.ToList();
+
+            // Pass categories for filter dropdown using ViewBag
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.SelectedCategoryId = categoryId;
+            ViewBag.SearchTerm = searchTerm;
+
             return View(cards);
         }
         public IActionResult AccessDenied() => View();
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        // ✅ Add Detail Action
-        public IActionResult Detail(int id)
+        public IActionResult Privacy() => View();
+
+        public IActionResult Detail(int id, int? categoryId, string searchTerm)
         {
             var card = _context.ECardTemplates
                 .Include(e => e.Category)
@@ -50,13 +71,39 @@ namespace frontend.Controllers
                 return NotFound();
             }
 
+            // Pass filter parameters to view using ViewBag instead of a view model
+            ViewBag.CategoryId = categoryId;
+            ViewBag.SearchTerm = searchTerm;
+
+            // Return the ECardTemplate directly
             return View(card);
         }
 
-        // ✅ Add SendEmail Action (POST)
         [HttpPost]
-        public async Task<IActionResult> SendEmail(int TemplateId, string SenderName, string Subject, string RecipientEmail, string PersonalMessage)
+        public async Task<IActionResult> SendEmail(
+     int TemplateId,
+     string SenderName,
+     string Subject,
+     string RecipientEmail,
+     string PersonalMessage,
+     int? categoryId,
+     string searchTerm)
         {
+            // ✅ Check if user is authenticated
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Redirect to login and preserve return URL to come back after login
+                var returnUrl = Url.Action("Detail", new
+                {
+                    id = TemplateId,
+                    categoryId = categoryId,
+                    searchTerm = searchTerm
+                });
+
+                return RedirectToAction("Login", "Account", new { returnUrl });
+            }
+
+            // Fetch E-Card from DB
             var card = _context.ECardTemplates.FirstOrDefault(e => e.TemplateId == TemplateId);
             if (card == null)
             {
@@ -71,11 +118,11 @@ namespace frontend.Controllers
                 var toAddress = new MailAddress(RecipientEmail);
 
                 string body = $@"
-        <h2>{Subject}</h2>
-        <p>From: {SenderName}</p>
-        <p>{PersonalMessage}</p>
-        <p>You've received an e-card!</p>
-        <img src='{Url.Content($"~/uploads/{card.ImageUrl}")}' alt='{card.Title}' style='max-width: 100%;' />";
+            <h2>{Subject}</h2>
+            <p>From: {SenderName}</p>
+            <p>{PersonalMessage}</p>
+            <p>You've received an e-card!</p>
+            <img src='{Url.Content($"~/uploads/{card.ImageUrl}")}' alt='{card.Title}' style='max-width: 100%;' />";
 
                 using var smtp = new SmtpClient
                 {
@@ -105,8 +152,14 @@ namespace frontend.Controllers
                 TempData["ErrorMessage"] = "Failed to send email. Please try again later.";
             }
 
-            return RedirectToAction("Detail", new { id = TemplateId });
+            return RedirectToAction("Detail", new
+            {
+                id = TemplateId,
+                categoryId = categoryId,
+                searchTerm = searchTerm
+            });
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

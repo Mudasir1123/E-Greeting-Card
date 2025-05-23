@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@* @model frontend.Controllers.HomeViewModel *@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,39 +39,73 @@
 </head>
 <body class="bg-white min-h-screen">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-md">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo and Navigation -->
             <div class="flex items-center">
-                <a asp-controller="Home" asp-action="Index" class="text-3xl font-['Pacifico'] text-primary">E-Greeting Card</a>
-                <nav class="hidden md:flex ml-10 space-x-8">
-                    <a asp-controller="Card" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">My Cards</a>
-                    @* <a asp-controller="Subscription" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Subscriptions</a> *@
-                    @* <a asp-controller="Price" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Pricing</a> *@
-                    <a asp-controller="About" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">About</a>
-                    <a asp-controller="Contact" asp-action="Index" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+                <a asp-controller="Home" asp-action="Index"
+                   class="text-3xl font-['Pacifico'] text-primary hover:text-primary/80 transition duration-200">
+                    E-Greeting Card
+                </a>
+
+                <nav class="hidden md:flex ml-10 space-x-8 text-sm font-medium">
+                    <a asp-controller="Card" asp-action="Index" class="text-gray-600 hover:text-primary transition">My Cards</a>
+                    <a asp-controller="About" asp-action="Index" class="text-gray-600 hover:text-primary transition">About</a>
+                    <a asp-controller="Contact" asp-action="Index" class="text-gray-600 hover:text-primary transition">Contact</a>
                 </nav>
             </div>
-            <div class="flex items-center space-x-4">
-                <div class="relative hidden md:block">
-                    <input type="text" placeholder="Search templates..."
-                           class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm w-64">
-                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+
+            <!-- Search Box -->
+            <div class="relative hidden md:block max-w-md w-full">
+                <form asp-controller="Home" asp-action="Index" method="get" class="relative w-full">
+                    <input type="text"
+                           name="searchTerm"
+                           id="searchInput"
+                           value="@(ViewBag.SearchTerm ?? "")"
+                           placeholder="Search templates..."
+                           autocomplete="off"
+                           class="pl-10 pr-10 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm w-full transition duration-200" />
+
+                    <!-- Search icon -->
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
                         <i class="ri-search-line"></i>
                     </div>
-                </div>
-                @* <a asp-area="Identity" asp-page="/Account/Login" *@
-                @*    class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"> *@
-                @*     Log In *@
-                @* </a> *@
-                @* <a asp-controller="Account" asp-action="SignUp" *@
-                @*    class="!rounded-button bg-primary text-white px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"> *@
-                @*     Sign *@
-                @*     Up *@
-                @* </a> *@
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-primary transition">
+                        <i class="ri-arrow-right-line ri-lg"></i>
+                    </button>
+
+                    <!-- Clear Button -->
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchTerm as string))
+                    {
+                        <a asp-controller="Home" asp-action="Index"
+                           asp-route-categoryId="@ViewBag.SelectedCategoryId"
+                           class="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-red-400 transition cursor-pointer"
+                           id="clearSearch">
+                            <i class="ri-close-line ri-lg"></i>
+                        </a>
+                    }
+
+                    <input type="hidden" name="categoryId" value="@(ViewBag.SelectedCategoryId ?? "")" />
+                </form>
+
+                <!-- Suggestions dropdown -->
+                <ul id="suggestionsList"
+                    class="absolute z-50 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-60 overflow-y-auto shadow-lg hidden text-sm text-gray-700">
+                    <!-- JS will populate suggestions here -->
+                </ul>
+            </div>
+
+
+            <!-- Login/Register -->
+            <div class="hidden md:flex space-x-2">
                 <partial name="_LoginPartial" />
             </div>
         </div>
     </header>
+
 
     <main>
         @RenderBody()

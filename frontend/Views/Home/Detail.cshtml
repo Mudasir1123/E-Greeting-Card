@@ -1,5 +1,4 @@
 ﻿@model frontend.Models.ECardTemplate
-
 @{
     ViewData["Title"] = "E-Card Detail";
 }
@@ -16,53 +15,72 @@
     <!-- Description -->
     <p class="text-gray-700 text-lg mb-6 text-center">@Model.Description</p>
 
-    <!-- Send E-Card Form -->
-    <form method="post" asp-action="SendEmail" class="space-y-5">
-        <input type="hidden" name="TemplateId" value="@Model.TemplateId" />
+    <!-- If user is logged in, show Send E-Card form -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form method="post" asp-action="SendEmail" class="space-y-5">
+            <input type="hidden" name="templateId" value="@Model.TemplateId" />
+            @if (Context.Request.Query.ContainsKey("categoryId"))
+            {
+                <input type="hidden" name="categoryId" value="@Context.Request.Query["categoryId"]" />
+            }
+            @if (Context.Request.Query.ContainsKey("searchTerm"))
+            {
+                <input type="hidden" name="searchTerm" value="@Context.Request.Query["searchTerm"]" />
+            }
 
-        <!-- Your Name -->
-        <div>
-            <label for="SenderName" class="block text-sm font-semibold text-gray-700 mb-1">Your Name</label>
-            <input type="text" id="SenderName" name="SenderName"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                   placeholder="Enter your name" required />
-        </div>
+            <!-- Your Name -->
+            <div>
+                <label for="senderName" class="block text-sm font-semibold text-gray-700 mb-1">Your Name</label>
+                <input type="text" id="senderName" name="senderName"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                       placeholder="Enter your name" required />
+            </div>
 
-        <!-- Subject -->
-        <div>
-            <label for="Subject" class="block text-sm font-semibold text-gray-700 mb-1">Subject</label>
-            <input type="text" id="Subject" name="Subject"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                   placeholder="Enter subject" required />
-        </div>
+            <!-- Subject -->
+            <div>
+                <label for="subject" class="block text-sm font-semibold text-gray-700 mb-1">Subject</label>
+                <input type="text" id="subject" name="subject"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                       placeholder="Enter subject" required />
+            </div>
 
-        <!-- Recipient Email -->
-        <div>
-            <label for="RecipientEmail" class="block text-sm font-semibold text-gray-700 mb-1">Recipient's Email</label>
-            <input type="email" id="RecipientEmail" name="RecipientEmail"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                   placeholder="Enter recipient's email" required />
-        </div>
+            <!-- Recipient Email -->
+            <div>
+                <label for="recipientEmail" class="block text-sm font-semibold text-gray-700 mb-1">Recipient's Email</label>
+                <input type="email" id="recipientEmail" name="recipientEmail"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                       placeholder="Enter recipient's email" required />
+            </div>
 
-        <!-- Personal Message -->
-        <div>
-            <label for="PersonalMessage" class="block text-sm font-semibold text-gray-700 mb-1">Personal Message</label>
-            <textarea id="PersonalMessage" name="PersonalMessage" rows="4"
-                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Add your personal message here"></textarea>
-        </div>
+            <!-- Personal Message -->
+            <div>
+                <label for="personalMessage" class="block text-sm font-semibold text-gray-700 mb-1">Personal Message</label>
+                <textarea id="personalMessage" name="personalMessage" rows="4"
+                          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                          placeholder="Add your personal message here"></textarea>
+            </div>
 
-        <!-- Send Button -->
-        <div class="pt-4">
-            <button type="submit"
-                    class="w-full bg-primary text-white font-semibold py-2 px-4 rounded-md hover:bg-primary/90 transition-all flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                </svg>
-                Send E-Card
-            </button>
+            <!-- Send Button -->
+            <div class="pt-4">
+                <button type="submit"
+                        class="w-full bg-primary text-white font-semibold py-2 px-4 rounded-md hover:bg-primary/90 transition-all flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                    </svg>
+                    Send E-Card
+                </button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <!-- If not logged in, show login prompt -->
+        <div class="mt-6 p-4 bg-yellow-100 border border-yellow-400 text-yellow-800 text-center rounded">
+            <p>Please <a asp-area="Identity" asp-page="/Account/Login" class="text-primary font-semibold underline">log in</a> to send this E-Card.</p>
+
         </div>
-    </form>
+    }
 
     <!-- Success/Error Messages -->
     @if (TempData["SuccessMessage"] != null)
